@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForkFiasco ($FORK) - ULTIMATE KITCHEN CHAOS UNLEASHED!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <style>
+        :root {
+            --brand-red: #EF4444;
+            --brand-red-dark: #DC2626;
+            --brand-yellow: #F59E0B;
+            --brand-yellow-dark: #D97706;
+            --text-dark: #111827;
+            --text-light: #f8fafc;
+            --chaos-glow-strong: 0 0 20px rgba(255, 80, 80, 0.9), 0 0 30px rgba(255, 120, 80, 0.7);
+            --chaos-glow-subtle: 0 0 10px rgba(255, 100, 100, 0.6);
+            --yellow-glow: 0 0 15px rgba(245, 158, 11, 0.7), 0 0 25px rgba(245, 158, 11, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ff9ff3; /* Fallback color */
+            position: relative;
+            overflow-x: hidden;
+            color: var(--text-dark);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -2;
+            background: linear-gradient(-45deg, #ff6b6b, #feca57, #ff9ff3, #48dbfb, #1dd1a1, #ff6b6b, #ff7979, #f9ca24, #ff6363, #fadf7f, #ff4d4d, #f7b731);
+            background-size: 2000% 2000%;
+            animation: gradientBGChaosEnhanced 15s ease-in-out infinite alternate, bodyBreathe 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes bodyBreathe {
+            0% { filter: saturate(1.0) brightness(0.92); }
+            50% { filter: saturate(1.4) brightness(1.1); }
+            100% { filter: saturate(1.0) brightness(0.92); }
+        }
+
+        @keyframes gradientBGChaosEnhanced {
+            0% { background-position: 0% 50%; filter: hue-rotate(0deg) saturate(1.0) brightness(0.95) skewX(0deg); }
+            15% { background-position: 20% 80%; filter: hue-rotate(30deg) saturate(1.3) brightness(1.05) skewX(-1deg); }
+            30% { background-position: 40% 100%; filter: hue-rotate(60deg) saturate(1.6) brightness(1.1) skewX(0deg); }
+            45% { background-position: 60% 70%; filter: hue-rotate(90deg) saturate(1.8) brightness(1.12) skewX(1deg); }
+            60% { background-position: 80% 30%; filter: hue-rotate(60deg) saturate(1.6) brightness(1.1) skewX(0deg); }
+            80% { background-position: 100% 50%; filter: hue-rotate(30deg) saturate(1.3) brightness(1.05) skewX(-1deg); }
+            100% { background-position: 0% 50%; filter: hue-rotate(0deg) saturate(1.0) brightness(0.95) skewX(0deg); }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -3;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.04) 0%, transparent 22%),
+                radial-gradient(circle at 85% 35%, rgba(255,255,255,0.03) 0%, transparent 18%),
+                radial-gradient(circle at 25% 75%, rgba(255,255,255,0.05) 0%, transparent 28%),
+                radial-gradient(circle at 70% 90%, rgba(255,255,255,0.04) 0%, transparent 20%);
+            background-size: 450px 450px, 550px 550px, 380px 380px, 650px 650px;
+            background-position: 0 0, 120px 60px, 220px 170px, 320px 270px;
+            opacity: 0.6;
+            animation: subtlePatternDrift 80s linear infinite alternate;
+        }
+
+        @keyframes subtlePatternDrift {
+            0% { background-position: 0 0, 120px 60px, 220px 170px, 320px 270px; transform: rotate(0deg) scale(1); }
+            50% { background-position: 600px 300px, -80px 350px, 50px -120px, 700px 50px; transform: rotate(8deg) scale(1.04); }
+            100% { background-position: 0 0, 120px 60px, 220px 170px, 320px 270px; transform: rotate(0deg) scale(1); }
+        }
+
+        .kitchen-chaos-particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1; overflow: hidden;
+        }
+
+        .particle {
+            position: absolute; border-radius: 50%; opacity: 0;
+            animation: flyAndExplodeEnhanced 6s to 18s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        .particle::before {
+            display: inline-block;
+            animation: spinEmojiEnhanced 1.3s linear infinite alternate-reverse;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+        .particle.tomato::before { content: '🍅'; font-size:2.4rem; color: #ff6347;}
+        .particle.cheese::before { content: '🧀'; font-size:2.4rem; color: #ffc300;}
+        .particle.fork-icon::before { content: '🍴'; font-size:2.4rem; color: #adb5bd;}
+        .particle.chili::before { content: '🌶️'; font-size:2.4rem; color: #e74c3c;}
+        .particle.egg::before { content: '🥚'; font-size:2.4rem; color: #f1c40f;}
+        .particle.whisk::before { content: '🍥'; font-size: 2.7rem; color: #bdc3c7; }
+        .particle.rolling-pin::before { content: '🥖'; font-size: 2.7rem; color: #d2a679; transform: rotate(45deg); }
+        .particle.pan::before { content: '🍳'; font-size: 2.7rem; color: #34495e; }
+        .particle.explosion::before { content: '💥'; font-size: 3rem; color: #e74c3c; animation-duration: 0.4s !important; }
+
+
+        @keyframes spinEmojiEnhanced {
+            0% { transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(0.9); }
+            50% { transform: rotateY(220deg) rotateX(150deg) rotateZ(300deg) scale(1.15); }
+            100% { transform: rotateY(360deg) rotateX(0deg) rotateZ(360deg) scale(0.9); }
+        }
+
+        @keyframes flyAndExplodeEnhanced {
+            0% { transform: translate3d(var(--start-x), var(--start-y), -180px) scale(0.3) rotate3d(1,0.8,0.5,0deg); opacity: 1; }
+            25% { opacity: 0.9; transform: translate3d(var(--mid-x), var(--mid-y), 80px) scale(1.4) rotate3d(0.5,1,0.8,320deg); }
+            50% { opacity: 0.75; transform: translate3d(calc(var(--mid-x)/1.5), calc(var(--mid-y)/1.5), -30px) scale(1.05) rotate3d(1,0.5,0.2,500deg); }
+            75% { opacity: 0.5; transform: translate3d(var(--end-x), var(--end-y), -100px) scale(1.8) rotate3d(0.8,0.2,1,650deg); }
+            100% { transform: translate3d(calc(var(--end-x) / 1.2), calc(var(--end-y) / 1.2), 20px) scale(0.1) rotate3d(1,1,1,720deg); opacity: 0; }
+        }
+
+
+        .sticky-header {
+            position: sticky; top: 0; z-index: 1000;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, transform 0.3s ease, border-bottom-color 0.3s ease;
+            padding-top: 0.5rem; padding-bottom: 0.5rem; width: 100%;
+            border-bottom: 1px solid transparent;
+        }
+        .sticky-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(170%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+            transform: translateY(0px) scale(1);
+            border-bottom-color: rgba(0,0,0,0.07);
+        }
+        .sticky-header.scrolled .frenzy-fork-logo { transform: scale(0.85) rotate(-10deg); }
+
+        .interactive-button {
+            position: relative;
+            transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.22s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            will-change: transform;
+        }
+        .interactive-button:hover {
+            filter: brightness(1.25) saturate(1.35);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18), var(--chaos-glow-subtle);
+            transform: translateY(-5px) scale(1.08) rotate(-1.5deg) translateX(1px);
+            animation: buttonHoverWiggle 0.4s ease-in-out infinite alternate;
+        }
+        @keyframes buttonHoverWiggle {
+            from { transform: translateY(-5px) scale(1.08) rotate(-1.5deg) translateX(1px); }
+            to { transform: translateY(-5.5px) scale(1.085) rotate(-1deg) translateX(-1px); }
+        }
+
+        .interactive-button.button-clicked-effect {
+            transform: scale(0.88) translateY(2.5px) rotate(2.5deg) !important;
+            filter: brightness(0.8);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+            animation: none !important;
+        }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at bottom, #ff7a7a 0%, #ffe066 55%, #ffb0b0 100%);
+            overflow: hidden; position: relative; padding-top: 7rem; padding-bottom: 3rem;
+        }
+        .hero-bg::before, .hero-bg::after, .hero-bg .extra-utensil, .hero-bg .another-utensil, .hero-bg .super-utensil, .hero-bg .mega-utensil {
+            content: ''; position: absolute; font-size: 9rem;
+            opacity: 0.1; animation: utensilChaosDeluxeEnhanced 9s linear infinite alternate;
+            z-index: 0; text-shadow: var(--chaos-glow-subtle); filter: blur(1px);
+        }
+        .hero-bg::before { content: '🍳'; top: 3%; left: 5%; font-size: 13rem; animation-duration: 12s; transform: rotate(-28deg) scaleX(-1); }
+        .hero-bg::after { content: '🍅'; font-size: 11rem; animation-delay: -5s; animation-duration: 16s; bottom: 1%; right: 4%; transform: rotate(33deg); }
+        .hero-bg .extra-utensil { content: '🔪'; font-size: 12rem; top: 50%; left: 10%; animation-delay: -2.5s; animation-duration: 14s; transform: rotate(22deg); opacity: 0.09;}
+        .hero-bg .another-utensil { content: '🌶️'; font-size: 10rem; top: 12%; right: 12%; animation-delay: -8s; animation-duration: 18s; transform: rotate(-18deg); opacity: 0.095;}
+        .hero-bg .super-utensil { content: '💥'; font-size: 11rem; top: 38%; left: 48%; transform: translateX(-50%); animation-delay: -4.5s; animation-duration: 11s; opacity: 0.12;}
+        .hero-bg .mega-utensil { content: '🍴'; font-size: 14rem; top: 70%; right: 20%; animation-delay: -7s; animation-duration: 15s; opacity: 0.08; transform: rotate(45deg) scaleY(-1); }
+
+
+        @keyframes utensilChaosDeluxeEnhanced {
+            0% { transform: translateY(25px) translateX(-20px) rotate(-25deg) scale(0.75) skewX(-7deg); opacity: 0.04; filter: blur(2px); }
+            25% { transform: translateY(-70px) translateX(60px) rotate(45deg) scale(1.25) skewX(7deg); opacity: 0.12; filter: blur(0px); }
+            50% { transform: translateY(50px) translateX(-50px) rotate(-40deg) scale(0.65) skewX(-10deg); opacity: 0.05; filter: blur(2.5px); }
+            75% { transform: translateY(-40px) translateX(70px) rotate(60deg) scale(1.20) skewX(10deg); opacity: 0.11; filter: blur(0.5px); }
+            100% { transform: translateY(10px) translateX(5px) rotate(20deg) scale(1.05) skewX(2deg); opacity: 0.06; filter: blur(1.5px); }
+        }
+
+        .btn-primary { background-color: var(--brand-red); color: var(--text-light); box-shadow: 0 4px 8px rgba(239,68,68,0.45); }
+        .btn-primary:hover { background-color: var(--brand-red-dark); transform: translateY(-6px) scale(1.1) rotate(-2.5deg) !important; box-shadow: 0 10px 20px rgba(220,38,38,0.6), var(--chaos-glow-strong); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
+        .btn-secondary { background-color: #F3F4F6; color: var(--text-dark); border: 2px solid #D1D5DB; }
+        .btn-secondary:hover { background-color: #E2E8F0; transform: translateY(-6px) scale(1.1) rotate(2.5deg) !important; box-shadow: 0 10px 20px rgba(0,0,0,0.18), 0 0 12px rgba(200,200,200,0.6); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
+        .btn-buy { background-color: var(--brand-yellow); color: var(--text-light); font-weight: 900; box-shadow: 0 5px 10px rgba(245, 158, 11, 0.55); text-transform: uppercase; }
+        .btn-buy:hover { background-color: var(--brand-yellow-dark); transform: translateY(-7px) scale(1.12) rotate(1.5deg) !important; box-shadow: 0 12px 24px rgba(217, 119, 6, 0.7), var(--yellow-glow); animation: buttonHoverWiggleYellow 0.35s ease-in-out infinite alternate !important; }
+        @keyframes buttonHoverWiggleYellow {
+            from { transform: translateY(-7px) scale(1.12) rotate(1.5deg); }
+            to { transform: translateY(-7.5px) scale(1.125) rotate(1deg); }
+        }
+        .btn-buy.pulse-effect { animation: pulseButtonEnhanced 1.3s infinite ease-in-out; }
+        @keyframes pulseButtonEnhanced {
+            0%, 100% { transform: scale(1); box-shadow: 0 5px 10px rgba(245, 158, 11, 0.55), 0 0 7px rgba(245,158,11,0.35); }
+            50% { transform: scale(1.1); box-shadow: 0 10px 20px rgba(245, 158, 11, 0.75), 0 0 25px rgba(245,158,11,0.65); }
+        }
+
+
+        .frenzy-fork-logo { width: 80px; height: 80px; animation: floatWiggleSpinUltraEnhanced 3.2s ease-in-out infinite; will-change: transform; }
+        @keyframes floatWiggleSpinUltraEnhanced {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2)); }
+            10% { transform: translateY(-18px) translateX(7px) rotate(-15deg) scale(1.15) skew(-5deg, 3deg); filter: drop-shadow(3px 5px 5px var(--brand-red)); }
+            20% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); }
+            30% { transform: translateY(-18px) translateX(-7px) rotate(15deg) scale(1.15) skew(5deg, -3deg); filter: drop-shadow(-3px 5px 5px var(--brand-yellow)); }
+            40% { transform: translateY(2px) translateX(0px) rotate(-10deg) scale(0.88) skew(0deg, 0deg); }
+            50% { transform: translateY(-12px) translateX(4px) rotate(8deg) scale(1.09) skew(-4deg, 2deg); filter: drop-shadow(2px 3px 4px var(--brand-red)); }
+            60% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); }
+            70% { transform: translateY(-15px) translateX(-4px) rotate(-12deg) scale(1.1) skew(4deg, -2deg); filter: drop-shadow(-2px 4px 5px var(--brand-yellow)); }
+            80% { transform: translateY(1px) translateX(0px) rotate(7deg) scale(0.93) skew(0deg, 0deg); }
+            90% { transform: translateY(-10px) translateX(0px) rotate(0deg) scale(1.08) skew(-3deg, 0deg); filter: drop-shadow(1px 2px 3px var(--brand-red)); }
+        }
+        .section-title { font-weight: 900; font-size: 2.5rem; line-height: 1.1; text-align: center; margin-bottom: 2rem; color: var(--text-dark); animation: textPopInEnhanced 1s cubic-bezier(0.68, -0.6, 0.27, 1.6) forwards; text-shadow: 1px 1px 0px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.05); }
+        @keyframes textPopInEnhanced {
+            from { opacity:0; transform: translateY(-25px) scale(0.75) rotateX(-35deg) rotateZ(-5deg); }
+            60% { opacity:1; transform: translateY(5px) scale(1.05) rotateX(5deg) rotateZ(2deg); }
+            to { opacity:1; transform: translateY(0) scale(1) rotateX(0deg) rotateZ(0deg); }
+        }
+        .section-subtitle { font-size: 1.1rem; line-height: 1.7; text-align: center; color: #374151; max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; animation: textFadeSlideUpEnhanced 1.3s ease-out 0.3s forwards; opacity:0; }
+        @keyframes textFadeSlideUpEnhanced {
+            from { opacity: 0; transform: translateY(35px) skewY(4deg) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) skewY(0deg) scale(1); }
+        }
+
+        .animate-on-scroll { opacity: 0; transition: opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1.1); will-change: opacity, transform; }
+        .animate-on-scroll.fade-in-up { transform: translateY(70px) rotateX(-12deg); }
+        .animate-on-scroll.fade-in-left { transform: translateX(-70px) rotateY(25deg); }
+        .animate-on-scroll.fade-in-right { transform: translateX(70px) rotateY(-25deg); }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0) translateX(0) rotateX(0) rotateY(0); }
+
+
+        .card {
+            background-color: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 1.25rem;
+            padding: 1.5rem;
+            transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.375), box-shadow 0.45s ease, border-color 0.35s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-18px) rotate(3deg) scale(1.04);
+            box-shadow: 0 28px 50px rgba(var(--brand-red-rgb, 239, 68, 68), 0.28);
+            border-color: var(--brand-red);
+            border-left-color: var(--brand-red);
+        }
+        .card .group-hover\\:scale-125:hover { transform: scale(1.38) rotate(22deg) !important; }
+
+
+        .roadmap-container { position: relative; padding: 2rem 0; }
+        .roadmap-container::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 1rem; width: 6px;
+            background: linear-gradient(to bottom, #ffc0cb, #f87171, var(--brand-red), var(--brand-red-dark), #800000, #500000);
+            transform: translateX(0); z-index: 0; border-radius: 5px;
+            animation: roadmapLineGrowEnhanced 3.5s cubic-bezier(0.65, 0, 0.35, 1.1) forwards;
+            box-shadow: 0 0 12px rgba(255,100,100,0.6);
+        }
+        @keyframes roadmapLineGrowEnhanced { from { height: 0%; opacity: 0.4; filter: blur(4px); } to { height: 100%; opacity: 1; filter: blur(0px); } }
+        @media (min-width: 768px) { 
+            .roadmap-container::before { left: 50%; width: 10px; transform: translateX(-50%); }
+        }
+
+
+        .roadmap-phase {
+            position: relative; padding: 1.5rem; margin-bottom: 2rem;
+            width: calc(100% - 3rem); 
+            margin-left: 3rem; 
+            background-color: rgba(255,255,255,0.97); border-radius: 1.2rem; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+            border: 3px solid transparent;
+            transition: border-color 0.4s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 1.05), box-shadow 0.45s ease;
+        }
+        @media (min-width: 768px) { 
+            .roadmap-phase { 
+                padding: 2.5rem; margin-bottom: 3.5rem;
+                width: calc(50% - 4.5rem);
+                margin-left: calc(50% + 4.5rem);
+            }
+            .roadmap-phase:nth-child(even) {
+                 margin-left: 0;
+                 margin-right: calc(50% + 4.5rem);
+            }
+        }
+
+        .roadmap-phase:hover {
+            border-color: var(--brand-yellow);
+            transform: scale(1.035) translateX(var(--hover-translate-x, 0)) rotate(var(--hover-rotate, 0deg)) skewX(var(--hover-skew, 0deg));
+            box-shadow: 0 15px 40px rgba(245,158,11,0.35);
+        }
+        .roadmap-phase:nth-child(odd) { --hover-translate-x: 6px; --hover-rotate: 1.2deg; --hover-skew: -1.2deg; animation: slideInWobbleRightEnhanced 1.1s ease-out; }
+        .roadmap-phase:nth-child(even) { --hover-translate-x: -6px; --hover-rotate: -1.2deg; --hover-skew: 1.2deg; animation: slideInWobbleLeftEnhanced 1.1s ease-out; }
+        
+        @media (min-width: 768px) {
+            .roadmap-phase:nth-child(odd) { --hover-translate-x: 10px; --hover-rotate: 1.8deg; --hover-skew: -2.2deg; }
+            .roadmap-phase:nth-child(even) { --hover-translate-x: -10px; --hover-rotate: -1.8deg; --hover-skew: 2.2deg; }
+        }
+
+        @keyframes slideInWobbleLeftEnhanced {
+            0% { opacity: 0; transform: translateX(-80px) rotate(-8deg) skewX(8deg); }
+            60% { opacity: 1; transform: translateX(15px) rotate(3deg) skewX(-3deg); }
+            80% { transform: translateX(-8px) rotate(-1.5deg) skewX(1.5deg); }
+            100% { transform: translateX(0) rotate(0) skewX(0); }
+        }
+        @keyframes slideInWobbleRightEnhanced {
+            0% { opacity: 0; transform: translateX(80px) rotate(8deg) skewX(-8deg); }
+            60% { opacity: 1; transform: translateX(-15px) rotate(-3deg) skewX(3deg); }
+            80% { transform: translateX(8px) rotate(1.5deg) skewX(-1.5deg); }
+            100% { transform: translateX(0) rotate(0) skewX(0); }
+        }
+
+        .roadmap-phase::after {
+            content: attr(data-emoji); position: absolute; top: 50%;
+            font-size: 2.8rem; background-color: #fff; color: var(--brand-red);
+            padding: 0.7rem; border-radius: 50%; box-shadow: 0 6px 12px rgba(0,0,0,0.22);
+            border: 3.5px solid #FEE2E2;
+            transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.27, 1.65), box-shadow 0.4s ease, filter 0.35s ease;
+            z-index: 1;
+            left: -1.75rem; transform: translate(-50%, -50%) rotate(-12deg);
+        }
+        .roadmap-phase:nth-child(odd)::after { --emoji-rotate: -20deg; --emoji-translate-x: -6px;}
+        .roadmap-phase:nth-child(even)::after { --emoji-rotate: 20deg; --emoji-translate-x: 6px;}
+
+        @media (min-width: 768px) {
+            .roadmap-phase::after { font-size: 3.8rem; padding: 0.9rem; left: auto; }
+            .roadmap-phase:nth-child(odd)::after { left: -3.7rem; transform: translate(-50%, -50%) rotate(-12deg); }
+            .roadmap-phase:nth-child(even)::after { right: -3.7rem; left:auto; transform: translate(50%, -50%) rotate(12deg); }
+        }
+
+        .roadmap-phase:hover::after {
+            transform: translateY(-50%) scale(1.4) rotate(var(--emoji-rotate, 18deg)) translateX(var(--emoji-translate-x, 0px)) ;
+            box-shadow: 0 10px 22px rgba(220,38,38,0.35);
+            filter: drop-shadow(0 0 8px var(--brand-red));
+        }
+
+        /* === GAME SECTION STYLES - REVERTED TO SIMPLER/ORIGINAL === */
+        #interactive { 
+            background: #e0f2fe; /* Simpler background */
+            padding-top: 3rem; padding-bottom: 4rem; 
+        }
+        @media (min-width: 768px) {
+            #interactive { padding-top: 5rem; padding-bottom: 6rem; }
+        }
+
+        #foodFightPairsContainer {
+            background: #ffffff; /* White background for game container */
+            border: 3px solid var(--brand-red); /* Simple red border */
+            border-radius: 1rem; 
+            padding: 1rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: gameContainerPopEnhanced 1.1s cubic-bezier(0.34, 1.66, 0.64, 1.05) forwards;
+            max-width: 90%; 
+            margin-left: auto; margin-right: auto; 
+        }
+         @media (min-width: 640px) { 
+            #foodFightPairsContainer { padding: 1.5rem; max-width: 520px; } /* Max width for better grid control */
+         }
+        @keyframes gameContainerPopEnhanced { from{opacity:0; transform: scale(0.55) rotateY(50deg) rotateZ(-10deg);} to{opacity:1; transform: scale(1) rotateY(0deg) rotateZ(0deg);} }
+
+        #cardGameInfo {
+            background-color: #f9fafb; /* Light gray background for info */
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 0.9rem; 
+        }
+        #cardGameInfo > div {
+            color: var(--text-dark);
+        }
+        #cardGameInfo span { font-weight: 600; font-size: 1em; }
+        #pairsScoreValue { color: var(--brand-yellow-dark); }
+        #pairsMovesValue { color: #3B82F6; } 
+        #pairsTimerValue { color: #10B981; } 
+
+        @media (min-width: 768px) { 
+            #cardGameInfo { font-size: 1rem; padding: 1rem; margin-bottom: 1.5rem; }
+        }
+
+        #cardGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+            gap: 0.5rem; 
+            padding: 0.25rem; /* Minimal padding for grid */
+            margin: 0 auto; /* Centering grid if its max-width is hit */
+            width: 100%;
+            box-sizing: border-box;
+        }
+        @media (min-width: 640px) { 
+            #cardGrid { gap: 0.75rem; padding: 0.5rem; }
+        }
+         @media (min-width: 768px) { 
+            #cardGrid { gap: 1rem; padding: 0.5rem; }
+        }
+
+        .card-container {
+            aspect-ratio: 2 / 2.8; 
+            cursor: pointer; 
+            perspective: 800px; 
+            transition: transform 0.15s ease-out;
+            min-width: 40px; /* Minimum width for very small screens */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .card-container:hover {
+            transform: scale(1.02); /* Subtle hover */
+        }
+
+        .card-flip { 
+            position: relative; width: 100%; height: 100%; 
+            transform-style: preserve-3d; 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Standard flip */
+        }
+        .card-flip.flipped { 
+            transform: rotateY(180deg); 
+        }
+        .card-face {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; 
+            border-radius: 0.375rem; /* 6px */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            display: flex;
+            align-items: center; justify-content: center; 
+            font-size: 2rem; /* Default emoji size */
+            line-height: 1; 
+            overflow: hidden; 
+        }
+         @media (min-width: 400px) { /* Adjust emoji size for slightly larger small screens */
+            .card-face { font-size: 2.25rem; }
+         }
+         @media (min-width: 640px) { 
+            .card-face { font-size: 2.5rem; border-radius: 0.5rem;}
+        }
+        
+        .card-front { 
+            background-color: #fef3c7; /* Light yellow */
+            border: 2px solid var(--brand-yellow); 
+            transform: rotateY(180deg); 
+            color: var(--text-dark); 
+        }
+        .card-back { 
+            background-color: var(--brand-red); 
+            color: white; 
+            border: 2px solid var(--brand-red-dark); 
+        }
+        .card-back svg { 
+            width: 55%; height: 55%; 
+            transition: none; /* Removed hover animation from SVG */
+            filter: none; /* Removed filter from SVG */
+        }
+
+        .card-flip.matched { 
+            animation: bounceMatchedCardSimple 0.5s ease-out;
+            cursor: default; 
+        }
+        @keyframes bounceMatchedCardSimple { /* Simpler match animation */
+            0%, 100% {transform: rotateY(180deg) scale(1);}
+            50% {transform: rotateY(180deg) scale(1.1);}
+        }
+        .card-flip.matched .card-front { 
+            border-color: #22c55e; /* Green border for match */
+            background-color: #dcfce7; /* Light green background for matched cards */
+        }
+
+        #cardGameControls button {
+            font-size: 1rem; 
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem; /* Tailwind's rounded-lg is 0.5rem */
+        }
+        @media (min-width: 768px) {
+            #cardGameControls button { font-size: 1.125rem; padding: 0.75rem 2rem; }
+        }
+
+        #cardGameMessage {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        @media (min-width: 768px) {
+             #cardGameMessage { font-size: 1.125rem; padding: 1rem 1.5rem; }
+        }
+        #cardGameMessage.win-message {
+            background-color: #dcfce7; 
+            color: #166534; 
+            border: 1px solid #4ade80;
+        }
+        #cardGameMessage.lose-message {
+            background-color: #fee2e2; 
+            color: #991b1b; 
+            border: 1px solid #f87171;
+        }
+        /* === END GAME SECTION STYLES === */
+
+
+        #excuseGeneratorSection {
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png'), linear-gradient(to bottom right, #fff2f2, #ffe8e8, #ffe0e0);
+            background-blend-mode: color-dodge;
+            padding: 3rem 1rem; border-top: 7px dashed var(--brand-red); border-bottom: 7px dashed var(--brand-red);
+            position: relative; overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            #excuseGeneratorSection { padding: 5rem 1.5rem; }
+        }
+
+        #excuseGeneratorSection::before, #excuseGeneratorSection::after, #excuseGeneratorSection .extra-chaos-icon {
+            content: '⁉️'; position: absolute; font-size: 4.5rem; opacity: 0.18;
+            animation: floatQuestionMarkWobbleProEnhanced 7s ease-in-out infinite;
+            text-shadow: 0 0 12px rgba(255,255,255,0.6);
+        }
+        #excuseGeneratorSection::before { top: 6%; left: 2%; animation-delay: -2.2s; transform: rotate(-15deg); content: '💡';}
+        #excuseGeneratorSection::after { bottom: 10%; right: 3%; font-size: 5.5rem; content: '🤪'; animation-delay: -4.8s; animation-duration: 9s; transform: rotate(15deg);}
+        #excuseGeneratorSection .extra-chaos-icon { content: '🤯'; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(5deg); font-size: 7rem; animation-delay: -1s; animation-duration: 12s; opacity: 0.15;}
+
+        @media (min-width: 768px) {
+            #excuseGeneratorSection::before, #excuseGeneratorSection::after { font-size: 6.5rem; }
+            #excuseGeneratorSection::after { font-size: 7.5rem; }
+        }
+
+        @keyframes floatQuestionMarkWobbleProEnhanced {
+            0%, 100% { transform: translateY(0) rotate(var(--initial-rotate, 0deg)) scale(1) skew(-4deg, 2deg); opacity: 0.18; }
+            25% { transform: translateY(-35px) rotate(calc(var(--initial-rotate, 0deg) + 25deg)) scale(1.2) skew(4deg, -2deg); opacity: 0.25; }
+            50% { transform: translateY(15px) rotate(calc(var(--initial-rotate, 0deg) - 10deg)) scale(0.85) skew(-6deg, 3deg); opacity: 0.15; }
+            75% { transform: translateY(-25px) rotate(calc(var(--initial-rotate, 0deg) - 18deg)) scale(1.15) skew(6deg, -3deg); opacity: 0.22; }
+        }
+
+        #excuseGeneratorContainer {
+            background-color: rgba(255, 255, 255, 0.98); padding: 2rem; border-radius: 1.5rem; 
+            box-shadow: 0 18px 35px rgba(0,0,0,0.18), 0 0 12px var(--brand-red-dark);
+            text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; 
+            max-width: 750px; margin: 0 auto;
+            animation: excuseContainerAppearEnhanced 1.1s cubic-bezier(0.23, 1.1, 0.32, 1.05) forwards;
+        }
+        @media (min-width: 768px) {
+            #excuseGeneratorContainer { padding: 3rem; border-radius: 2rem; gap: 2rem; }
+        }
+        @keyframes excuseContainerAppearEnhanced { from{opacity:0; transform: translateY(55px) scale(0.65) rotateZ(-7deg);} to{opacity:1; transform: translateY(0) scale(1) rotateZ(0deg);} }
+
+        #frenzyForkExcuseMaster {
+            width: 100px; height: 100px; margin-bottom: 1rem; 
+            transition: transform 0.55s cubic-bezier(0.68, -0.65, 0.32, 1.65);
+        }
+        @media (min-width: 768px) {
+            #frenzyForkExcuseMaster { width: 140px; height: 140px; margin-bottom: 1.5rem; }
+        }
+        #frenzyForkExcuseMaster.thinking { animation: forkThinkingUltraEnhanced 0.75s ease-in-out infinite; }
+        @keyframes forkThinkingUltraEnhanced {
+            0%, 100% { transform: rotate(-18deg) translateY(-15px) scale(1.08) skewX(-7deg); filter: drop-shadow(0 0 7px var(--brand-yellow));}
+            25% { transform: rotate(18deg) translateY(2px) scale(1.2) skewX(7deg); filter: drop-shadow(0 0 12px var(--brand-yellow));}
+            50% { transform: rotate(-12deg) translateY(-10px) scale(0.92) skewX(-4deg); filter: drop-shadow(0 0 4px var(--brand-yellow));}
+            75% { transform: rotate(12deg) translateY(1px) scale(1.15) skewX(4deg); filter: drop-shadow(0 0 10px var(--brand-yellow));}
+        }
+        #frenzyForkExcuseMaster.revealing { animation: forkRevealUltraEnhanced 0.85s cubic-bezier(0.68, -0.65, 0.27, 1.65) forwards; }
+        @keyframes forkRevealUltraEnhanced {
+            0% { transform: scale(0.65) rotate(-25deg) translateY(18px); opacity: 0.5; }
+            40% { transform: scale(1.6) rotate(35deg) translateY(-12px); opacity: 1; filter: brightness(1.25) saturate(1.6) drop-shadow(0 0 18px var(--brand-red));}
+            70% { transform: scale(0.88) rotate(-18deg) translateY(7px); }
+            100% { transform: scale(1.25) rotate(-10deg) translateY(0); filter: brightness(1.15) drop-shadow(0 0 10px var(--brand-red));}
+        }
+
+        #excuseDisplayArea {
+            position: relative; min-height: 150px; width: 100%;
+            display: flex; align-items: center; justify-content: center; padding: 0.5rem;
+        }
+        #excuseText {
+            font-family: 'Gochi Hand', cursive; font-size: 1.5rem; color: var(--brand-red-dark);
+            padding: 1rem 1.5rem; background-image: url('https://www.transparenttextures.com/patterns/lined-paper-2.png');
+            background-color: #fffef8; border: 2.5px dashed #fcd34d;
+            border-radius: 0.75rem; box-shadow: 6px 6px 18px rgba(0,0,0,0.18), inset 0 0 7px rgba(0,0,0,0.07);
+            min-height: 120px; width: 100%; max-width: 550px; line-height: 1.55;
+            opacity: 0; transform: scale(0.65) rotateX(50deg) translateY(25px);
+            transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.68, -0.6, 0.27, 1.6);
+            overflow-wrap: break-word;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        @media (min-width: 768px) {
+            #excuseText { font-size: 2.1rem; padding: 1.5rem 2rem; }
+        }
+        #excuseText.visible { opacity: 1; transform: scale(1) rotateX(0deg) translateY(0px); }
+
+
+        #join { position: relative; overflow: hidden; }
+        #join::before {
+            content: ''; position: absolute; top: -70%; left: -70%; width: 240%; height: 240%;
+            background: radial-gradient(ellipse at center, rgba(var(--brand-red-rgb,239,68,68),0.18) 0%, rgba(var(--brand-yellow-rgb,245,158,11),0.1) 30%, transparent 65%);
+            animation: pulseJoinBackgroundMaxEnhanced 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+            z-index: 0; pointer-events: none;
+        }
+        @keyframes pulseJoinBackgroundMaxEnhanced {
+            0% { transform: scale(0.65) rotate(-7deg); opacity: 0.4; filter: blur(3px); }
+            50% { transform: scale(1.35) rotate(7deg); opacity: 1; filter: blur(0px); }
+            100% { transform: scale(0.65) rotate(-7deg); opacity: 0.4; filter: blur(3px); }
+        }
+
+        .wallet-text-link-container { display: inline; }
+        .wallet-text-link {
+            font-weight: 700; text-decoration: none; position: relative;
+            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease, filter 0.3s ease, background-color 0.3s ease;
+            padding: 0.2em 0.4em; border-radius: 0.3em; display: inline-block; margin: 0 0.1em;
+            animation: walletLinkIdleEnhanced 2.3s infinite ease-in-out;
+        }
+        .wallet-text-link:hover {
+            transform: translateY(-3.5px) scale(1.15) rotate(-3deg);
+            animation-play-state: paused;
+            filter: drop-shadow(0 0 4px currentColor);
+        }
+
+        @keyframes walletLinkIdleEnhanced {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); text-shadow: 0 0 2px transparent; }
+            20% { transform: translateY(-1.2px) scale(1.015) rotate(0.7deg); }
+            40% { transform: translateY(0) scale(1) rotate(0deg); }
+            60% { transform: translateY(-1.2px) scale(1.015) rotate(-0.7deg); }
+            80% { transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+
+        .wallet-text-link.phantom { color: #c084fc; animation-delay: 0s; }
+        .wallet-text-link.phantom:hover { color: #a855f7; text-shadow: 0 0 12px #a855f7, 0 0 18px #c084fc; background-color: rgba(168, 85, 247, 0.18); }
+
+        .wallet-text-link.solflare { color: #fbbf24; animation-delay: 0.15s; }
+        .wallet-text-link.solflare:hover { color: #f59e0b; text-shadow: 0 0 12px #f59e0b, 0 0 18px #fbbf24; background-color: rgba(245, 158, 11, 0.18); }
+
+        .wallet-text-link.metamask { color: #f97316; animation-delay: 0.3s; }
+        .wallet-text-link.metamask:hover { color: #ea580c; text-shadow: 0 0 12px #ea580c, 0 0 18px #f97316; background-color: rgba(234, 88, 12, 0.18); }
+
+        .wallet-text-link::after {
+            content: ''; position: absolute; width: 0; height: 2.8px;
+            display: block; margin-top: 3.5px; right: 50%;
+            background: currentColor;
+            transition: width 0.35s ease, right 0.35s ease;
+        }
+        .wallet-text-link:hover::after { width: 100%; right: 0; }
+
+        .splatter {
+            position: fixed;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            pointer-events: none;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 9999;
+            transform: translate(-50%, -50%) scale(0);
+            animation: splatterEffect 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes splatterEffect {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2) rotate(15deg); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(0.8) rotate(-10deg); opacity: 0; }
+        }
+
+        .sparkle {
+            position: fixed;
+            width: 8px; height: 8px;
+            pointer-events: none;
+            z-index: 10000;
+            border-radius: 50%;
+            animation: sparkleEffect 0.7s ease-out forwards;
+        }
+        .sparkle.red { background-color: var(--brand-red); box-shadow: 0 0 5px var(--brand-red), 0 0 10px var(--brand-red); }
+        .sparkle.gold { background-color: var(--brand-yellow); box-shadow: 0 0 5px var(--brand-yellow), 0 0 10px var(--brand-yellow); }
+        .sparkle.silver { background-color: #bdc3c7; box-shadow: 0 0 5px #bdc3c7, 0 0 10px #bdc3c7; }
+        .sparkle.blue-sparkle { background-color: #3B82F6; box-shadow: 0 0 7px #3B82F6, 0 0 14px #3B82F6; }
+
+
+        @keyframes sparkleEffect {
+            0% { transform: scale(1) translateY(0px); opacity: 1; }
+            100% { transform: scale(0) translateY(-30px) rotate(90deg); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+    <div class="kitchen-chaos-particles" id="kitchenChaosParticlesContainer"></div>
+
+    <nav class="sticky-header bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-xl md:text-2xl font-bold text-gray-800">
+                <svg class="frenzy-fork-logo h-7 w-7 md:h-10 md:w-10 text-red-600 transition-transform duration-300" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V28H20V5Z" fill="#7F8C8D"/>
+                    <path d="M32 2C30.3431 2 29 3.34315 29 5V36H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
+                    <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V28H44V5Z" fill="#7F8C8D"/>
+                    <path d="M18 28C14.6863 28 12 30.6863 12 34V40H52V34C52 30.6863 49.3137 28 46 28H18Z" fill="#BDC3C7"/>
+                    <path d="M28 40H36V62H28V40Z" fill="#BDC3C7"/>
+                    <circle cx="27" cy="34" r="3" fill="var(--brand-red)"/>
+                    <circle cx="37" cy="34" r="3" fill="var(--brand-red)"/>
+                    <path d="M24 32C24.5 31 25.5 30.5 27 30.5C28.5 30.5 29.5 31 30 32" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M34 32C34.5 31 35.5 30.5 37 30.5C38.5 30.5 39.5 31 40 32" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="text-red-600 text-lg md:text-xl">Fork</span><span class="text-gray-700 text-lg md:text-xl">Fiasco</span>
+            </a>
+            <div class="hidden sm:flex space-x-1 md:space-x-3 items-center">
+                <a href="#about" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">About</a>
+                <a href="#tokenomics" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Tokenomics</a>
+                <a href="#interactive" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Game</a>
+                <a href="#excuseGeneratorSection" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Excuse Gen</a>
+                <a href="#community" class="btn-primary px-2.5 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-semibold interactive-button">Join the Chaos!</a>
+                <a href="#join" class="btn-buy px-2.5 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm interactive-button pulse-effect">BUY $FORK!</a>
+            </div>
+            <div class="sm:hidden">
+                <button id="mobileMenuButton" class="text-gray-700 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500 p-2 rounded-md">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="sm:hidden hidden bg-white/95 backdrop-blur-md shadow-lg absolute w-full">
+            <a href="#about" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">About</a>
+            <a href="#tokenomics" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Tokenomics</a>
+            <a href="#interactive" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Game</a>
+            <a href="#excuseGeneratorSection" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Excuse Gen</a>
+            <a href="#community" class="block px-4 py-3 text-base font-semibold text-white bg-red-500 hover:bg-red-600 transition-colors">Join the Chaos!</a>
+            <a href="#join" class="block px-4 py-3 text-base font-semibold text-white bg-yellow-500 hover:bg-yellow-600 transition-colors pulse-effect">BUY $FORK!</a>
+        </div>
+    </nav>
+
+    <header class="hero-bg py-16 sm:py-24 md:py-36 relative">
+        <div class="extra-utensil"></div>
+        <div class="another-utensil"></div>
+        <div class="super-utensil"></div>
+        <div class="mega-utensil"></div>
+        <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
+            <div class="mb-8 md:mb-10 flex justify-center animate-on-scroll fade-in-up">
+                 <svg class="frenzy-fork-logo h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 text-red-600" style="animation-duration: 2.8s;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">  <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V28H20V5Z" fill="#7F8C8D"/>
+                    <path d="M32 2C30.3431 2 29 3.34315 29 5V36H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
+                    <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V28H44V5Z" fill="#7F8C8D"/>
+                    <path d="M18 28C14.6863 28 12 30.6863 12 34V40H52V34C52 30.6863 49.3137 28 46 28H18Z" fill="#BDC3C7"/>
+                    <path d="M28 40H36V62H28V40Z" fill="#BDC3C7"/>
+                    <circle cx="27" cy="34" r="4" fill="var(--brand-red)"/>
+                    <circle cx="37" cy="34" r="4" fill="var(--brand-red)"/>
+                    <path d="M23 30C24 28.5 26 28 27 28C28 28 29.5 28.5 30 30" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M33 30C34 28.5 36 28 37 28C38 28 39.5 28.5 40 30" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-4 md:mb-6 leading-tight drop-shadow-lg animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+                <span class="text-red-600" style="text-shadow: var(--chaos-glow-strong);">$FORK:</span> <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-400 to-red-600 animate-text-shine">KITCHEN CHAOS</span> UNLEASHED!
+            </h1>
+            <style> .animate-text-shine { animation: textShineEnhanced 2.8s linear infinite alternate; } @keyframes textShineEnhanced { from { filter: brightness(0.75) saturate(0.75) hue-rotate(0deg); } to { filter: brightness(1.6) saturate(1.6) hue-rotate(15deg) drop-shadow(0 0 12px var(--brand-yellow)); } } </style>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-md sm:max-w-xl md:max-w-3xl mx-auto mb-8 md:mb-10 animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                Dive into ForkFiasco ($FORK) – the memecoin that's <strong class="text-red-500 font-semibold">exploding crypto</strong> with hilarious kitchen antics & a <strong class="text-yellow-500 font-semibold">ridiculously fun</strong> community. Remember: <strong class="text-red-600 drop-shadow-sm text-xl md:text-2xl">Stab the DIP, HODL the GRIP!</strong> You DON'T want to miss this!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+                <a href="#interactive" class="btn-primary px-8 py-3 md:px-12 md:py-5 rounded-xl text-lg md:text-xl font-semibold inline-block interactive-button shadow-xl hover:shadow-2xl transform hover:scale-105">PLAY FOOD FIGHT!</a>
+                <a href="#about" class="btn-secondary px-8 py-3 md:px-12 md:py-5 rounded-xl text-lg md:text-xl font-semibold inline-block interactive-button shadow-xl hover:shadow-2xl transform hover:scale-105">What's Cooking?</a>
+            </div>
+            <p class="mt-8 md:mt-10 text-md md:text-lg text-gray-600 animate-on-scroll fade-in-up" style="animation-delay: 0.7s;">Token Ticker: <span class="font-bold text-red-600 text-lg md:text-xl">$FORK</span> - Your Ticket to the Mayhem!</p>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-28 bg-white relative overflow-hidden">
+        <div class="absolute top-10 -left-20 opacity-10 animate-spin-slow-extra text-7xl md:text-9xl">🍳</div>
+        <div class="absolute bottom-10 -right-20 opacity-10 animate-ping-slow-extra text-7xl md:text-9xl">🔪</div>
+        <style> @keyframes spin-slow-extra { to { transform: rotate(360deg) scale(1.1); } } .animate-spin-slow-extra { animation: spin-slow-extra 28s linear infinite alternate; } @keyframes ping-slow-extra { 0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.1; } 50% { transform: scale(1.8) rotate(15deg); opacity: 0; } } .animate-ping-slow-extra { animation: ping-slow-extra 4.5s cubic-bezier(0, 0, 0.2, 1) infinite; }</style>
+
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
+                <div class="lg:w-1/2 text-center lg:text-left animate-on-scroll fade-in-left">
+                    <h2 class="section-title !text-left mb-4 md:mb-6">The Secret Ingredient? <br class="hidden lg:block"/><span class="text-red-600" style="text-shadow: var(--chaos-glow-subtle);">100% Pure MAYHEM!</span></h2>
+                    <p class="text-md md:text-lg text-gray-700 leading-relaxed mb-3 md:mb-4">
+                        Tired of bland crypto? ForkFiasco ($FORK) is a memecoin phenomenon born from the delightful absurdity of kitchen chaos. Led by our fearless mascot, Frenzy Fork, we're a community dedicated to humor, creativity, and 'stabbing the dip' while 'HODLing the grip.' <strong class="text-red-500">You don't want to be left out, do you?</strong>
+                    </p>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-8 mb-2 md:mb-3">The Legend of Frenzy Fork:</h3>
+                    <p class="text-md md:text-lg text-gray-700 leading-relaxed mb-3 md:mb-4">
+                        Legend says Frenzy Fork was forged in a culinary cataclysm – a rogue utensil that decided silverware had more fun. Now, it roams the blockchain, poking fun at seriousness and stirring up delicious disorder. Its mission? To make crypto less about charts and <strong class="text-yellow-600">more about laughs</strong> (and occasionally, perfectly flipped pancakes). <strong class="text-gray-800">Feel that energy!</strong>
+                    </p>
+                    <p class="text-md md:text-lg text-gray-700 leading-relaxed">
+                        We're not just a token; we're a five-star recipe for fun, engagement, and a dash of delightful disorder in the crypto space. Get ready, your crypto is about to get a little... sharper! <strong class="text-red-600">Join the legend!</strong>
+                    </p>
+                </div>
+                <div class="lg:w-1/2 relative animate-on-scroll fade-in-right" style="animation-delay: 0.2s;">
+                    <!-- Image for "About" section - URL updated by user -->
+                    <img src="https://i.ibb.co/Kzxc3Wm4/Gemini-Generated-Image-gxvfwigxvfwigxvf.jpg" alt="Frenzy Fork - Маскот проекта ForkFiasco на кухне" class="rounded-xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-108 hover:rotate-[-3deg] hover:shadow-red-400/50">
+                    <div class="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-20 h-20 md:w-28 md:h-28 bg-red-500 rounded-full opacity-15 animate-ping-slow-extra" style="animation-duration: 3.2s;"></div>
+                    <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 rounded-full opacity-15 animate-pulse" style="animation-duration: 2.5s; animation-timing-function: ease-in-out;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="py-16 md:py-28 bg-gray-100 relative overflow-hidden">
+        <div class="absolute -z-10 top-0 left-0 w-full h-full opacity-5" style="background-image: repeating-linear-gradient(135deg, #f59e0b22, #f59e0b22 15px, #ef444422 15px, #ef444422 30px); animation: bgScrollTokenomics 70s linear infinite;"></div>
+        <style> @keyframes bgScrollTokenomics { 0% { background-position: 0 0; } 100% { background-position: 1200px -1200px; } } </style>
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title">Forkonomics: <span class="text-yellow-500" style="text-shadow: var(--yellow-glow);">The Recipe for $FORK!</span></h2>
+            <p class="section-subtitle">
+                What makes $FORK sizzle? Here's a peek at the ingredients that make up our chaotic-good tokenomics. We believe in fair distribution and a community-first approach!
+            </p>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div class="card !border-l-yellow-500 hover:!border-yellow-500 animate-on-scroll fade-in-left" style="--brand-red-rgb: 245,158,11;">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">💰</span>
+                        <h3 class="text-2xl font-semibold text-gray-800">Total Supply</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        A deliciously large, but fixed, supply of $FORK tokens, ensuring there's enough chaos to go around, but no hyper-inflationary mess! (e.g., 1,000,000,000 $FORK)
+                    </p>
+                </div>
+                <div class="card !border-l-red-500 hover:!border-red-500 animate-on-scroll fade-in-right" style="--brand-red-rgb: 239,68,68;">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🔥</span>
+                        <h3 class="text-2xl font-semibold text-gray-800">Fair Launch & Liquidity</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        No pre-sales, no team tokens dumped at launch! A significant portion of the supply is locked in liquidity pools on decentralized exchanges to ensure smooth and fair trading for everyone.
+                    </p>
+                </div>
+                <div class="card !border-l-green-500 hover:!border-green-500 animate-on-scroll fade-in-left" style="animation-delay: 0.1s; --brand-red-rgb: 34,197,94;">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">🤝</span>
+                        <h3 class="text-2xl font-semibold text-gray-800">Community & Marketing Fund</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        A dedicated portion of tokens is allocated to fuel community growth, marketing campaigns, contests, and future development of the ForkFiasco ecosystem. Governed by the community, for the community!
+                    </p>
+                </div>
+                <div class="card !border-l-blue-500 hover:!border-blue-500 animate-on-scroll fade-in-right" style="animation-delay: 0.1s; --brand-red-rgb: 59,130,246;">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">✨</span>
+                        <h3 class="text-2xl font-semibold text-gray-800">Future Utilities & Burns</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        As the Fiasco grows, $FORK will gain more utility within our games and interactive features. We'll also explore deflationary mechanisms like token burns based on community consensus to keep things spicy!
+                    </p>
+                </div>
+            </div>
+            <p class="mt-10 text-center text-gray-600 text-sm animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                *Detailed token distribution percentages and specific wallet addresses for locked liquidity and community funds will be publicly available and verifiable on the blockchain. Transparency is key in our kitchen!
+            </p>
+        </div>
+    </section>
+
+    <section id="audience" class="py-16 md:py-28 bg-slate-100 relative overflow-hidden">
+        <div class="absolute -z-10 top-0 left-0 w-full h-full opacity-5" style="background-image: repeating-linear-gradient(45deg, #ef444433, #ef444433 10px, #f59e0b33 10px, #f59e0b33 20px), repeating-radial-gradient(circle at 15% 15%, #10b98122 5px, transparent 20px); animation: bgScrollEnhanced 50s linear infinite;"></div>
+        <style> @keyframes bgScrollEnhanced { 0% { background-position: 0 0, 0 0; } 100% { background-position: -1000px 1000px, -500px -500px; } } </style>
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title">Do You Speak Fluent <br class="sm:hidden"/><span class="text-red-600" style="text-shadow: var(--chaos-glow-subtle);">Kitchen Catastrophe?</span></h2>
+            <p class="section-subtitle">If any of these sound like you – you've found your people (and your fork!). You might even need an apron and a fire extinguisher. <strong class="text-gray-800">This is your sign!</strong></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="card group !bg-red-50 hover:!bg-red-100 border-red-200 animate-on-scroll fade-in-up" style="animation-delay: 0.1s; --brand-red-rgb: 239,68,68;">
+                    <div class="p-3 md:p-4 rounded-full bg-red-200 text-red-600 inline-block mb-4 md:mb-6 text-4xl md:text-5xl transform transition-transform group-hover:scale-135 group-hover:rotate-[-15deg] group-hover:animate-wiggle-more">🤣</div>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2 md:mb-3">Meme Connoisseur</h3>
+                    <p class="text-sm md:text-base text-gray-700">😂 You live for food memes and epic kitchen fails. Your camera roll is 90% burnt toast and cat-chef content.</p>
+                </div>
+                <div class="card group !bg-yellow-50 hover:!bg-yellow-100 border-yellow-200 animate-on-scroll fade-in-up" style="animation-delay: 0.2s; --brand-red-rgb: 245,158,11;">
+                     <div class="p-3 md:p-4 rounded-full bg-yellow-200 text-yellow-600 inline-block mb-4 md:mb-6 text-4xl md:text-5xl transform transition-transform group-hover:scale-135 group-hover:rotate-[15deg] group-hover:animate-wiggle-more">🤑</div>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2 md:mb-3">Crypto Gourmet</h3>
+                    <p class="text-sm md:text-base text-gray-700">💰 You crave crypto with personality, a strong community, and a genuine sense of humor (not just another dog coin).</p>
+                </div>
+                <div class="card group !bg-blue-50 hover:!bg-blue-100 border-blue-200 animate-on-scroll fade-in-up" style="animation-delay: 0.3s; --brand-red-rgb: 59,130,246;">
+                    <div class="p-3 md:p-4 rounded-full bg-blue-200 text-blue-600 inline-block mb-4 md:mb-6 text-4xl md:text-5xl transform transition-transform group-hover:scale-135 group-hover:rotate-[-10deg] group-hover:animate-wiggle-more">🤪</div>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2 md:mb-3">Absurdity Aficionado</h3>
+                    <p class="text-sm md:text-base text-gray-700">🤯 You find joy in everyday absurdities and aren't afraid to laugh at a good mess (especially if it's not yours).</p>
+                </div>
+                 <div class="card group !bg-green-50 hover:!bg-green-100 border-green-200 animate-on-scroll fade-in-up" style="animation-delay: 0.4s; --brand-red-rgb: 34,197,94;">
+                    <div class="p-3 md:p-4 rounded-full bg-green-200 text-green-600 inline-block mb-4 md:mb-6 text-4xl md:text-5xl transform transition-transform group-hover:scale-135 group-hover:rotate-[10deg] group-hover:animate-wiggle-more">🍴</div>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2 md:mb-3">Utensil Rebel</h3>
+                    <p class="text-sm md:text-base text-gray-700">🍴 You're ready to join the most 'utensil-ly' disruptive and fun-loving crew in the cryptoverse! (Spatulas welcome).</p>
+                </div>
+            </div>
+            <style> @keyframes wiggle-more { 0%, 100% { transform: rotate(-4deg) scale(1.38) translateY(-2px); } 50% { transform: rotate(4deg) scale(1.38) translateY(2px); } } .group-hover\\:animate-wiggle-more:hover > div:first-child { animation: wiggle-more 0.45s ease-in-out infinite; } </style>
+             <div class="mt-12 md:mt-20 p-4 md:p-6 bg-white rounded-2xl shadow-xl text-center animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6">Our Chaotic Crew: <strong class="text-red-500">This is US!</strong></h3>
+                <div id="imageCollage" class="collage-container mx-auto !rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Game Section: Food Fight Pairs - REVERTED TO SIMPLER STYLING -->
+    <section id="interactive" class="py-16 md:py-28 bg-sky-100 relative overflow-hidden">
+        <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] sm:text-[20rem] md:text-[30rem] text-sky-200/40 opacity-25 font-black select-none animate-pulse-slow-game">
+            GAME
+        </div>
+        <style>.animate-pulse-slow-game { animation: pulse 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite, gameTextFloat 15s ease-in-out infinite alternate; }
+        @keyframes gameTextFloat {
+            0% { transform: translate(-50%, -50%) rotate(-2deg) scale(1); }
+            50% { transform: translate(-48%, -52%) rotate(2deg) scale(1.05); }
+            100% { transform: translate(-50%, -50%) rotate(-2deg) scale(1); }
+        }
+        </style>
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title">ForkFiasco's <span class="text-red-600" style="text-shadow: var(--chaos-glow-subtle);">Food Fight Pairs!</span></h2>
+            <p class="section-subtitle">Sharpen your memory! Match the pairs of chaotic kitchen items before time runs out or your patience does! <strong class="text-gray-800">Winner takes ALL (the glory and bragging rights)!</strong></p>
+
+            <div id="foodFightPairsContainer" class="max-w-3xl mx-auto">
+                <div id="cardGameInfo" class="game-ui-cards">
+                    <div id="pairsScoreDisplay">Score: <span id="pairsScoreValue">0</span></div>
+                    <div id="pairsMovesDisplay">Moves: <span id="pairsMovesValue">0</span></div>
+                    <div id="pairsTimerDisplay">Time: <span id="pairsTimerValue">0</span>s</div>
+                </div>
+                <div id="cardGrid">
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
+                <div id="cardGameControls" class="text-center mt-6 md:mt-8">
+                    <button id="startGameButton" class="btn-primary interactive-button">Start Food Fight!</button>
+                </div>
+                <div id="cardGameMessage" class="hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="excuseGeneratorSection" class="py-16 md:py-28 bg-slate-50">
+        <div class="container mx-auto px-4 sm:px-6 max-w-3xl">
+            <h2 class="section-title">Frenzy Fork's <span class="text-red-600" style="text-shadow: var(--chaos-glow-subtle);">Kitchen Excuse</span> Generator!</h2>
+            <p class="section-subtitle">Kitchen a mess? Frenzy Fork has an excuse for that! Click the button for a perfectly absurd explanation from the chaos master himself! <strong class="text-gray-800">Share this masterpiece – save a friend!</strong></p>
+            <div id="excuseGeneratorContainer" class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
+                <div id="frenzyForkExcuseMasterContainer" class="md:w-1/3 flex justify-center">
+                     <svg id="frenzyForkExcuseMaster" class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 text-gray-700" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 15C20 13.34315 21.3431 12 23 12C24.6569 12 26 13.34315 26 15V38H20V15Z" fill="#7F8C8D"/>
+                        <path d="M32 12C30.3431 12 29 13.34315 29 15V46H35V15C35 13.34315 33.6569 12 32 12Z" fill="#95A5A6"/>
+                        <path d="M44 15C44 13.34315 42.6569 12 41 12C39.3431 12 38 13.34315 38 15V38H44V15Z" fill="#7F8C8D"/>
+                        <path d="M18 38C14.6863 38 12 40.6863 12 44V50H52V44C52 40.6863 49.3137 38 46 38H18Z" fill="#BDC3C7"/>
+                        <circle cx="25" cy="44" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle cx="24" cy="44.5" r="2.5" fill="black"/>
+                        <circle cx="39" cy="44" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle cx="40" cy="44.5" r="2.5" fill="black"/>
+                        <path d="M28 50 Q32 54 36 50" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                </div>
+                <div class="md:w-2/3 flex flex-col items-center md:items-start w-full">
+                    <div id="excuseDisplayArea" class="w-full mb-4 md:mb-6">
+                        <div id="excuseText" class="flex items-center justify-center text-center">"The spaghetti spontaneously decided to redecorate."</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
+                        <button id="generateExcuseBtn" class="btn-primary interactive-button text-md md:text-lg px-6 py-2.5 md:px-8 md:py-3 w-full sm:w-auto">Get Excuse!</button>
+                        <button id="shareExcuseBtn" class="btn-secondary interactive-button text-md md:text-lg px-5 py-2.5 md:px-6 md:py-3 w-full sm:w-auto">Share the Chaos!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="py-16 md:py-28 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title !text-white drop-shadow-lg animate-on-scroll fade-in-up">Ready to Wield Some <span class="text-red-500" style="text-shadow: var(--chaos-glow-strong);">Sharp $FORK?</span></h2>
+            <p class="section-subtitle !text-gray-300 animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                Joining ForkFiasco is easier than flipping a pancake (most of the time)! $FORK is available on leading decentralized exchanges. Grab your wallet and get ready to <strong class="text-yellow-400">stir things up!</strong> <strong class="text-white">Don't miss your chance to be part of the legend!</strong>
+            </p>
+            <div class="max-w-xl md:max-w-2xl mx-auto bg-gray-800 p-6 md:p-10 rounded-2xl shadow-2xl space-y-6 md:space-y-8 border-2 border-red-500/50 animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                 <div class="text-center">
+                     <a href="#" target="_blank" rel="noopener noreferrer" class="btn-buy px-8 py-3 md:px-12 md:py-5 rounded-xl text-lg md:text-xl lg:text-2xl font-black inline-block shadow-2xl transform hover:scale-108 transition-transform interactive-button !bg-red-600 hover:!bg-red-700 !text-white pulse-effect">
+                        🚀 GET $FORK NOW! 🚀
+                    </a>
+                 </div>
+                <p class="text-center text-gray-400 pt-2 md:pt-4 text-md md:text-lg">
+                    Compatible with <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" class="wallet-text-link phantom">Phantom</a>,
+                    <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" class="wallet-text-link solflare">Solflare</a>,
+                    <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" class="wallet-text-link metamask">MetaMask</a>
+                    & other top wallets.
+                </p>
+                <div>
+                    <h3 class="text-lg md:text-xl font-semibold text-red-400 mb-2 text-center">Official Contract Address:</h3>
+                    <div class="flex flex-col sm:flex-row items-center bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 gap-2 sm:gap-0">
+                        <input id="contractAddress" type="text" readonly value="0xFORKFIASCO...CHAOS123" class="w-full sm:flex-grow bg-transparent text-gray-300 text-xs sm:text-sm md:text-base border-none focus:ring-0 p-0 text-center sm:text-left">
+                        <button id="copyContractBtn" class="w-full sm:w-auto mt-2 sm:mt-0 sm:ml-4 px-4 py-2 md:px-5 md:py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs md:text-sm font-semibold rounded-md transition-colors interactive-button">
+                            Copy
+                        </button>
+                    </div>
+                    <p id="copyStatus" class="text-sm text-green-400 mt-2 h-4 text-center"></p>
+                </div>
+                <p class="text-xs md:text-sm text-yellow-400 bg-yellow-900/30 p-3 md:p-4 rounded-lg border border-yellow-700/50"><strong class="font-semibold">Critically Important:</strong> Always double-check the contract address. Stay safe and fork responsibly! (Seriously, don't poke electrical sockets with forks).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="py-16 md:py-28 bg-slate-100">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title">Our Recipe for <span class="text-red-600" style="text-shadow: var(--chaos-glow-subtle);">Future Mayhem</span></h2>
+            <p class="section-subtitle">What's simmering in the ForkFiasco kitchen? Here's a taste of our future chaotic concoctions. <strong class="text-gray-800">This is gonna be EPIC!</strong></p>
+            <div class="roadmap-container max-w-4xl mx-auto">
+                <div class="roadmap-phase" data-emoji="🍳"> <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Phase 1: The Prep <span class="text-xs font-medium bg-green-200 text-green-800 px-2.5 py-1 rounded-full ml-2 animate-pulse">DONE!</span></h3>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">Project Launch, Core Community Building, Website v1 & First Interactive Game Debut. (All ingredients gathered!).</p>
+                </div>
+                <div class="roadmap-phase" data-emoji="🔥">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Phase 2: High Heat Searing</h3>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">Community Feature Expansion, Strategic Partnerships with Foodie Influencers & Meme Accounts, First Major #ForkFiasco Campaign. (Smells dangerously good!).</p>
+                </div>
+                <div class="roadmap-phase" data-emoji="🌶️">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Phase 3: Flavor Infusion</h3>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">Advanced Interactive Content Development, Cross-Community Events, Exploring Further $FORK Utility within our Ecosystem. (Things are getting SPICY!).</p>
+                </div>
+                <div class="roadmap-phase" data-emoji="🎉"> <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Phase 4: The Grand Feast & Beyond!</h3>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">World Domination (one kitchen at a time)... and other delightful, chaotic surprises! (The cherry on top of the fiasco!). <strong class="text-red-500">Are YOU ready for this?</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="py-16 md:py-28 bg-red-700 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/food.png'), url('https://www.transparenttextures.com/patterns/subtle-carbon.png'); background-size: 300px, 150px; animation: bgScrollSlowCommunity 70s linear infinite, bgScrollFastCommunity 30s linear infinite reverse; background-blend-mode: overlay;"></div>
+        <style> @keyframes bgScrollSlowCommunity { 0% { background-position: 0 0, 0 0; } 100% { background-position: -1200px 1200px, 0 0; } }
+                @keyframes bgScrollFastCommunity { 0% { background-position: 0 0, 0 0; } 100% { background-position: 0 0, 600px -600px; } }
+        </style>
+        <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
+            <h2 class="section-title !text-white drop-shadow-xl animate-on-scroll fade-in-up">The Main Course: <span class="text-yellow-300" style="text-shadow: 0 0 10px #facc15, 0 0 20px #fde047, 0 0 5px #fff;">Our Glorious Community!</span></h2>
+            <p class="section-subtitle !text-red-100 drop-shadow-md animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                Don't be a lone fork in the drawer – <strong class="text-yellow-200 text-lg md:text-xl">Join US!</strong> ForkFiasco is all about its vibrant, chaotic, and side-splittingly hilarious community! Follow our channels for the latest news, meme wars, epic contests, and to connect with fellow $FORK enthusiasts. <strong class="text-white text-lg md:text-xl">The kitchen party is ALWAYS on</strong> (and someone definitely left the blender lid off again)!
+            </p>
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-8 mt-8 md:mt-12 animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon-link twitter bg-white text-red-600 hover:bg-red-100 font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl flex items-center space-x-2 md:space-x-3 shadow-xl interactive-button text-md md:text-lg">
+                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                    <span>X (Twitter)</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon-link telegram bg-white text-red-600 hover:bg-red-100 font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl flex items-center space-x-2 md:space-x-3 shadow-xl interactive-button text-md md:text-lg">
+                     <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 5.884C22 5.334 21.387 5.013 20.91 5.336L2.018 13.08C1.516 13.421 1.507 14.13 2.004 14.48L6.06 17.11L8.15 21.718C8.35 22.219 8.952 22.37 9.303 22.018L12.07 19.31L16.91 22.688C17.49 23.087 18.21 22.734 18.32 22.09L21.93 6.474C21.99 6.184 22 6.034 22 5.884ZM8.02 16.01L4.82 13.98L18.88 7.02L8.02 16.01Z"/></svg>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 md:py-16 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <p class="mb-4 md:mb-6 text-md md:text-lg">© <span id="currentYear"></span> ForkFiasco. All Rights Reserved (but chaos is always encouraged!).</p>
+            <p class="text-xs">Remember: Cryptocurrency investments are high risk. Do your own research.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Sticky Header & Mobile Menu Logic
+        const header = document.querySelector('.sticky-header');
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+
+        // Button Click Interaction & Sound Initialization using Tone.js
+        const interactiveButtons = document.querySelectorAll('.interactive-button');
+        let pokeSound, whooshSound, popSound, sizzleSound, bubbleSound, kitchenClatterSound, dingSound;
+
+        function initSounds() {
+            if (typeof Tone === 'undefined') { console.warn("Tone.js not loaded, sounds will be disabled."); return; }
+            if (pokeSound) return;
+
+            try {
+                 pokeSound = new Tone.MembraneSynth({
+                    pitchDecay: 0.006, octaves: 2.0, oscillator: { type: "triangle" },
+                    envelope: { attack: 0.001, decay: 0.15, sustain: 0.001, release: 0.03, attackCurve: "linear" },
+                    volume: -14
+                }).toDestination();
+
+                whooshSound = new Tone.NoiseSynth({
+                    noise: { type: 'pink', fadeIn: 0.01, fadeOut: 0.15 },
+                    envelope: { attack: 0.005, decay: 0.18, sustain: 0, release: 0.1 },
+                    volume: -22
+                }).toDestination();
+
+                popSound = new Tone.Synth({
+                    oscillator: { type: 'square', frequency: "C6" },
+                    envelope: { attack: 0.0005, decay: 0.05, sustain: 0, release: 0.05 },
+                    volume: -12
+                }).toDestination();
+
+                sizzleSound = new Tone.NoiseSynth({
+                    noise: { type: "white", playbackRate: 0.7 },
+                    envelope: { attack: 0.05, decay: 0.4, sustain: 0.2, release: 0.3, attackCurve: "exponential" },
+                    filter: { type: "bandpass", Q: 1.2, frequency: 3000 },
+                    filterEnvelope: { attack: 0.1, decay: 0.2, baseFrequency: 2000, octaves: 1.8 },
+                    volume: -28
+                }).toDestination();
+
+                bubbleSound = new Tone.Synth({
+                    oscillator: { type: "sine", frequency: 100, detune: 10 },
+                    envelope: { attack: 0.02, decay: 0.25, sustain: 0.05, release: 0.2, attackCurve: "ripple", releaseCurve: "bounce" },
+                    volume: -24
+                }).toDestination();
+
+                kitchenClatterSound = new Tone.PluckSynth({
+                    attackNoise: 0.8, dampening: 3000, resonance: 0.85, volume: -18
+                }).toDestination();
+
+                dingSound = new Tone.Synth({
+                    oscillator: { type: "sine", frequency: "E6", partials: [1, 0.1, 0.05] },
+                    envelope: { attack: 0.001, decay: 0.4, sustain: 0.01, release: 0.6 },
+                    volume: -10
+                }).toDestination();
+                 const reverb = new Tone.Reverb(0.3).toDestination();
+                 dingSound.connect(reverb);
+
+            } catch (error) {
+                console.error("Error initializing Tone.js sounds:", error);
+            }
+        }
+
+        document.body.addEventListener('click', () => {
+             if (typeof Tone !== 'undefined' && Tone.context.state !== 'running') {
+                Tone.start().then(initSounds).catch(e => console.error("Error starting Tone.js or initializing sounds:", e));
+            } else if (typeof Tone !== 'undefined' && !pokeSound) {
+                initSounds();
+            }
+        }, { once: true });
+
+        if (interactiveButtons.length > 0) {
+            interactiveButtons.forEach(button => {
+                button.addEventListener('mousedown', (e) => {
+                    if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && pokeSound) {
+                        pokeSound.triggerAttackRelease("C3", "20n", Tone.now() + 0.005);
+                    }
+                    button.classList.add('button-clicked-effect');
+                });
+                button.addEventListener('mouseup', () => {
+                    setTimeout(() => button.classList.remove('button-clicked-effect'), 120);
+                });
+                button.addEventListener('mouseleave', () => {
+                     button.classList.remove('button-clicked-effect');
+                });
+            });
+        }
+
+        // Card Game Sounds
+        let cardFlipSound, cardMatchSound, cardNoMatchSound, cardGameWinSound, cardGameStartSound, gameLostSound;
+
+        function initCardGameSounds() {
+            if (typeof Tone === 'undefined' || cardFlipSound) return; 
+
+            try {
+                cardFlipSound = new Tone.NoiseSynth({
+                    noise: { type: 'white', playbackRate: 1.8 },
+                    envelope: { attack: 0.001, decay: 0.025, sustain: 0, release: 0.015 },
+                    volume: -23
+                }).toDestination();
+
+                cardMatchSound = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'triangle8' },
+                    envelope: { attack: 0.005, decay: 0.2, sustain: 0.05, release: 0.25 },
+                    volume: -9
+                }).toDestination();
+
+                cardNoMatchSound = new Tone.MembraneSynth({
+                    pitchDecay: 0.06, octaves: 2.5,
+                    envelope: { attack: 0.001, decay: 0.08, sustain: 0, release: 0.04 },
+                    volume: -20
+                }).toDestination();
+
+                cardGameWinSound = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: {type: 'fatsawtooth', count:3, spread:30},
+                    envelope: {attack:0.01, decay:0.7, sustain:0.25, release:0.5},
+                    volume: -7
+                }).toDestination();
+                const winReverb = new Tone.Reverb(0.45).toDestination();
+                cardGameWinSound.connect(winReverb);
+
+                cardGameStartSound = new Tone.Synth({
+                    oscillator: {type: 'pulse', width: 0.55, frequency: 'B4'},
+                    envelope: {attack:0.005, decay:0.35, sustain:0, release:0.2},
+                    volume: -11
+                }).toDestination();
+
+                gameLostSound = new Tone.Synth({
+                    oscillator: {type: "fatsquare", count: 2, spread: 50, frequency: "G#1"},
+                    envelope: {attack:0.06, decay:0.8, sustain:0, release:0.6},
+                    volume: -9
+                }).toDestination();
+            } catch(error) {
+                console.error("Error initializing card game sounds:", error);
+            }
+        }
+
+        // Card Game Logic - REVERTED TO SIMPLER STYLING
+        const gameSection = document.getElementById('interactive');
+        if (gameSection) {
+            const scoreEl = gameSection.querySelector('#pairsScoreValue');
+            const movesEl = gameSection.querySelector('#pairsMovesValue');
+            const timerEl = gameSection.querySelector('#pairsTimerValue');
+            const gridEl = gameSection.querySelector('#cardGrid');
+            const startBtn = gameSection.querySelector('#startGameButton');
+            const messageEl = gameSection.querySelector('#cardGameMessage');
+
+            const CARD_GAME_TIME = 75;
+            let pairsScore = 0, moves = 0, pairsTimer = CARD_GAME_TIME, gameTimerInterval;
+            let firstCard = null, secondCard = null;
+            let lockBoard = false;
+            let matchedPairs = 0;
+            let totalPairs = 0;
+            let cardGameActive = false;
+
+            const cardTypes = [
+                { type: 'tomato', content: '🍅' }, { type: 'sausage', content: '🌭' },
+                { type: 'cheese', content: '🧀' }, { type: 'fork', content: '🍴' },
+                { type: 'pan', content: '🍳' },    { type: 'knife', content: '🔪' },
+                { type: 'chili', content: '🌶️' }, { type: 'egg', content: '🥚' }
+            ];
+
+            function createCardElement(cardInfo) {
+                const cardContainer = document.createElement('div');
+                cardContainer.classList.add('card-container');
+                
+                const cardFlip = document.createElement('div');
+                cardFlip.classList.add('card-flip');
+                cardFlip.dataset.type = cardInfo.type;
+                
+                const cardFront = document.createElement('div');
+                cardFront.classList.add('card-face', 'card-front');
+                cardFront.textContent = cardInfo.content;
+                
+                const cardBack = document.createElement('div');
+                cardBack.classList.add('card-face', 'card-back');
+                // Original simple SVG for card back
+                cardBack.innerHTML = `<svg viewBox="0 0 64 64" fill="white"><path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V28H20V5Z"/><path d="M32 2C30.3431 2 29 3.34315 29 5V36H35V5C35 3.34315 33.6569 2 32 2Z" opacity="0.8"/><path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V28H44V5Z"/><path d="M18 28C14.6863 28 12 30.6863 12 34V40H52V34C52 30.6863 49.3137 28 46 28H18Z" opacity="0.7"/><path d="M28 40H36V62H28V40Z" opacity="0.7"/></svg>`;
+                
+                cardFlip.appendChild(cardFront);
+                cardFlip.appendChild(cardBack);
+                cardContainer.appendChild(cardFlip);
+                
+                cardContainer.addEventListener('click', () => flipCard(cardFlip));
+                return cardContainer;
+            }
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function setupBoard() {
+                if (!gridEl) { console.error("Card grid element not found!"); return; }
+                gridEl.innerHTML = '';
+                let gameCardsData = [];
+                cardTypes.forEach(type => { 
+                    gameCardsData.push({...type});
+                    gameCardsData.push({...type});
+                });
+                totalPairs = cardTypes.length;
+                shuffle(gameCardsData);
+
+                gameCardsData.forEach(cardInfo => {
+                    gridEl.appendChild(createCardElement(cardInfo));
+                });
+            }
+
+            function flipCard(card) {
+                if (lockBoard || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+                if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && cardFlipSound) {
+                    cardFlipSound.triggerAttackRelease("4n", Tone.now() + 0.005); 
+                }
+                card.classList.add('flipped');
+
+                if (!firstCard) {
+                    firstCard = card;
+                    return;
+                }
+                secondCard = card;
+                moves++;
+                if(movesEl) movesEl.textContent = moves;
+                lockBoard = true;
+                checkForMatch();
+            }
+
+            function checkForMatch() {
+                const isMatch = firstCard.dataset.type === secondCard.dataset.type;
+                if (isMatch) {
+                    if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && cardMatchSound) cardMatchSound.triggerAttackRelease(["C5", "E5", "G5"], "8n", Tone.now() + 0.05);
+                    disableCards();
+                    pairsScore += 15;
+                    if(scoreEl) scoreEl.textContent = pairsScore;
+                    matchedPairs++;
+                    if (matchedPairs === totalPairs) {
+                        endGame(true);
+                    }
+                } else {
+                    if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && cardNoMatchSound) cardNoMatchSound.triggerAttackRelease("A2", "8n", Tone.now() + 0.1); 
+                    unflipCards();
+                }
+            }
+
+            function disableCards() {
+                firstCard.classList.add('matched');
+                secondCard.classList.add('matched');
+                resetBoardState();
+            }
+
+            function unflipCards() {
+                setTimeout(() => {
+                    if(firstCard) firstCard.classList.remove('flipped');
+                    if(secondCard) secondCard.classList.remove('flipped');
+                    resetBoardState();
+                }, 1000); 
+            }
+
+            function resetBoardState() {
+                [firstCard, secondCard] = [null, null];
+                lockBoard = false;
+            }
+
+            function updateGameTimer() {
+                if (!cardGameActive || !timerEl) return;
+                pairsTimer--;
+                timerEl.textContent = pairsTimer + "s";
+                if (pairsTimer <= 0) {
+                    endGame(false);
+                }
+            }
+
+            function startGame() {
+                if (typeof Tone !== 'undefined' && Tone.context.state !== 'running') {
+                    Tone.start().then(() => {
+                        initSounds(); initCardGameSounds();
+                        if(cardGameStartSound) cardGameStartSound.triggerAttackRelease("B4", "4n", Tone.now());
+                    }).catch(e => console.error("Error starting Tone.js for card game:", e));
+                } else if (typeof Tone !== 'undefined') {
+                    initSounds(); initCardGameSounds();
+                    if(cardGameStartSound) cardGameStartSound.triggerAttackRelease("B4", "4n", Tone.now());
+                }
+
+                pairsScore = 0; if(scoreEl) scoreEl.textContent = pairsScore;
+                moves = 0; if(movesEl) movesEl.textContent = moves;
+                pairsTimer = CARD_GAME_TIME; if(timerEl) timerEl.textContent = pairsTimer + "s";
+                matchedPairs = 0;
+                cardGameActive = true;
+                if(startBtn) startBtn.textContent = "Restart!";
+                if(messageEl) {
+                    messageEl.classList.add('hidden');
+                    messageEl.classList.remove('win-message', 'lose-message');
+                    messageEl.textContent = '';
+                }
+                
+                setupBoard();
+                resetBoardState();
+
+                clearInterval(gameTimerInterval);
+                gameTimerInterval = setInterval(updateGameTimer, 1000);
+            }
+
+            function endGame(isWin) {
+                cardGameActive = false;
+                clearInterval(gameTimerInterval);
+                if (!messageEl) return;
+
+                messageEl.classList.remove('hidden');
+                if (isWin) {
+                    messageEl.textContent = `VICTORY! Score: ${pairsScore}, Moves: ${moves}. You're a Chaos Champion!`;
+                    messageEl.classList.add('win-message');
+                    messageEl.classList.remove('lose-message');
+                    if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && cardGameWinSound) cardGameWinSound.triggerAttackRelease(["C4", "E4", "G4", "C5"], "0.7s", Tone.now());
+                } else {
+                    messageEl.textContent = `Time's Up! Score: ${pairsScore}, Moves: ${moves}. Try again, chaos awaits!`;
+                    messageEl.classList.add('lose-message');
+                    messageEl.classList.remove('win-message');
+                     if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && gameLostSound) gameLostSound.triggerAttackRelease("G#1", "0.8s", Tone.now());
+                }
+                if(startBtn) startBtn.textContent = "Play Again?";
+            }
+            if(startBtn) startBtn.addEventListener('click', startGame);
+        }
+
+
+        // Kitchen Excuse Generator Logic
+        const excuseGeneratorContainer = document.getElementById('excuseGeneratorContainer');
+        if(excuseGeneratorContainer) {
+            const excuseTextEl = document.getElementById('excuseText');
+            const generateExcuseBtn = document.getElementById('generateExcuseBtn');
+            const shareExcuseBtn = document.getElementById('shareExcuseBtn');
+            const frenzyForkExcuseMasterEl = document.getElementById('frenzyForkExcuseMaster');
+
+            const excuses = [ 
+                "The spaghetti spontaneously decided to redecorate. It's art!",
+                "I'm not messy, I'm culinarily expressive. Art demands sacrifice!",
+                "Frenzy Fork told me to do it. You can't argue with a sentient fork, right?",
+                "It's not a disaster, it's an abstract food sculpture: 'Entropy of Flavor'.",
+                "I was testing the aerodynamic properties of pancakes. For SCIENCE, you know?",
+                "The recipe said 'add a dash of chaos'. I might have overdone it... just a tad.",
+                "My cooking is just misunderstood. Like most great artists.",
+                "Gravity had a personal vendetta against that cake. It was too beautiful!",
+                "The dog looked hungry... for the entire contents of the fridge. And the cat.",
+                "I'm pretty sure the blender is possessed. It started a salsa rave with chili.",
+                "This isn't burnt, it's 'Cajun-style apocalypse everything'. A delicacy!",
+                "I was trying a new recipe: 'Deconstructed Dinner Surprise'. Surpriiise!",
+                "The kitchen gnomes are on strike. Things got out of hand, honestly!",
+                "I sneezed while holding the flour. It's now a winter wonderland... and a bit of asthma.",
+                "Frenzy Fork was practicing for the Cutlery Tossing Olympics.",
+                "This isn't a mess, it's a 'creative vortex of inspiration'. You just don't feel the vibe.",
+                "I tried to cook 'silence of the lambs', but they were too loud.",
+                "The oven said it was bored. I decided to throw it a fire show.",
+                "The pasta performed a ritualistic dance and summoned a sauce demon.",
+                "My utensils are unionizing. This is their protest.",
+                "I was trying to invent self-cleaning dishes. It's... a work in progress.",
+                "The food just exploded with flavor. Literally.",
+                "A rogue squirrel chef broke in and re-arranged things. He had strong opinions.",
+                "I'm not sure what happened, but I think the paprika is sentient now.",
+                "It's an interactive art piece titled 'Ode to a Tuesday Night'.",
+                "The dishwasher is staging a coup. I'm just a hostage.",
+                "I was channeling my inner Jackson Pollock, but with marinara.",
+                "The vegetables started a mosh pit. Things escalated quickly.",
+                "My cooking is avant-garde. You wouldn't get it.",
+                "I'm pioneering a new culinary movement: 'Chaos Cuisine'. This is its manifesto.",
+                "The spices had a disagreement. It got... dusty.",
+                "I was trying to summon the Flavor Gods. They demand tribute.",
+                "It's not a mess, it's a 'flavor battlefield'. The tomato sauce won.",
+                "I'm pretty sure a poltergeist is just really into experimental cooking.",
+                "The cat tried to help. 'Help' is a strong word here.",
+                "I was making 'ambrosia', but I think I accidentally opened a portal instead.",
+                "This is what happens when you let the forks plan dinner.",
+                "I was teaching the toaster to make crème brûlée. It had performance anxiety.",
+                "The olive oil decided to go for a slip 'n slide.",
+                "It's performance art depicting the futility of order in a chaotic universe.",
+                "The salad spinner achieved sentience and tried to escape. It didn't get far.",
+                "I was attacked by a rogue loaf of sourdough. It was surprisingly aggressive.",
+                "The kitchen is merely reflecting the beautiful chaos of my soul.",
+                "I'm conducting a very important experiment on the 'spontaneous combustion of toast'.",
+                "The refrigerator started singing opera. It was very distracting.",
+                "My attempt to make a 'molecular gastronomy foam' resulted in... this.",
+                "The pepper grinder sneezed. Violently.",
+                "I'm pretty sure the microwave is trying to communicate with aliens.",
+                "This isn't a mess, it's a 'culinary Jackson Pollock'. Appreciate the art.",
+                "I was trying to make a soufflé, but it had an existential crisis and collapsed.",
+                "The rolling pin is currently in a standoff with the whisk. I'm staying out of it.",
+                "I accidentally created a new life form in the back of the fridge. It's... pungent.",
+                "The kitchen is just having a 'bad hair day'.",
+                "I was testing the structural integrity of a gingerbread house with a real hammer.",
+                "The coffee machine declared itself supreme leader. I'm just following orders.",
+                "It's not burnt, it's 'extra crispy with a hint of despair'.",
+                "The ice cream maker is going through a rebellious phase.",
+                "I'm developing a new dish called 'Abstract Expressionist Scramble'.",
+                "The forks are having a philosophical debate about their purpose. It's intense."
+            ];
+            let currentExcuse = excuses[0]; 
+            if(excuseTextEl) {
+                excuseTextEl.textContent = `"${currentExcuse}"`;
+                excuseTextEl.classList.add('visible');
+            }
+
+            if(generateExcuseBtn) generateExcuseBtn.addEventListener('click', () => {
+                if (frenzyForkExcuseMasterEl) frenzyForkExcuseMasterEl.classList.add('thinking'); 
+                if (typeof Tone !== 'undefined' && Tone.context.state === 'running') {
+                    const thinkingSoundChoice = Math.random();
+                    if (thinkingSoundChoice < 0.4 && kitchenClatterSound) {
+                        const now = Tone.now();
+                        kitchenClatterSound.triggerAttackRelease("C4", "16n", now + Math.random()*0.05);
+                        kitchenClatterSound.triggerAttackRelease("E4", "16n", now + 0.08 + Math.random()*0.05);
+                    } else if (thinkingSoundChoice < 0.7 && sizzleSound) {
+                        sizzleSound.triggerAttackRelease("0.5s", Tone.now());
+                    } else if (bubbleSound) {
+                        const now = Tone.now();
+                        bubbleSound.triggerAttackRelease("G3", "16n", now);
+                        bubbleSound.triggerAttackRelease("B3", "16n", now + 0.07);
+                    }
+                }
+
+                if(excuseTextEl) excuseTextEl.classList.remove('visible'); 
+
+                setTimeout(() => {
+                    currentExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+                    if(excuseTextEl) {
+                        excuseTextEl.textContent = `"${currentExcuse}"`;
+                        excuseTextEl.classList.add('visible');
+                    }
+
+                    if (frenzyForkExcuseMasterEl) { 
+                        frenzyForkExcuseMasterEl.classList.remove('thinking');
+                        frenzyForkExcuseMasterEl.classList.add('revealing');
+                        setTimeout(() => frenzyForkExcuseMasterEl.classList.remove('revealing'), 850);
+                    }
+                    if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && dingSound) {
+                         dingSound.triggerAttackRelease("E6", "0.5s", Tone.now() + 0.05);
+                    }
+
+                }, 800); 
+            });
+
+            if(shareExcuseBtn) shareExcuseBtn.addEventListener('click', () => {
+                const textToShare = `My ForkFiasco Kitchen Excuse: "${currentExcuse}" Join the chaos with $FORK! #ForkFiasco #KitchenChaos #ExcuseByFork`;
+                const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToShare)}`;
+                window.open(twitterUrl, '_blank'); 
+                 if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && popSound) {
+                    popSound.triggerAttackRelease("C6", "16n", Tone.now()); 
+                }
+            });
+        }
+
+        const copyContractBtn = document.getElementById('copyContractBtn');
+        const contractAddressInput = document.getElementById('contractAddress');
+        const copyStatusP = document.getElementById('copyStatus');
+        if (copyContractBtn && contractAddressInput) {
+            copyContractBtn.addEventListener('click', function() {
+                contractAddressInput.select(); 
+                contractAddressInput.setSelectionRange(0, 99999); 
+                try {
+                    var successful = document.execCommand('copy'); 
+                    if(successful){
+                        copyStatusP.textContent = 'Copied to clipboard!';
+                        copyContractBtn.textContent = 'Copied!';
+                        if(popSound && typeof Tone !== 'undefined' && Tone.context.state === 'running') popSound.triggerAttackRelease("C5", "8n"); 
+                        setTimeout(() => { copyStatusP.textContent = ''; copyContractBtn.textContent = 'Copy'; }, 2000); 
+                    } else {
+                         copyStatusP.textContent = 'Failed to copy.';
+                         setTimeout(() => { copyStatusP.textContent = ''; }, 2000);
+                    }
+                } catch (err) {
+                    copyStatusP.textContent = 'Oops, unable to copy!';
+                    setTimeout(() => { copyStatusP.textContent = ''; }, 2000);
+                    console.error('Fallback: Oops, unable to copy', err);
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
+                    try {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            e.preventDefault(); 
+                            targetElement.scrollIntoView({ behavior: 'smooth' }); 
+                        }
+                    } catch (error) {
+                        console.error("Error finding element for smooth scroll:", targetId, error);
+                    }
+                } else if (targetId === '#') { 
+                    e.preventDefault();
+                }
+            });
+        });
+
+        const collageContainer = document.getElementById('imageCollage');
+        if (collageContainer) {
+            const images = [ 
+                // UPDATED URLs for collage images with 20 new links
+                "https://i.ibb.co/yBdNvvg8/Gemini-Generated-Image-7nl7757nl7757nl7.jpg",
+                "https://i.ibb.co/pBKLygrD/Gemini-Generated-Image-lzluddlzluddlzlu.jpg",
+                "https://i.ibb.co/kVQCYf5T/Gemini-Generated-Image-ade613ade613ade6.jpg",
+                "https://i.ibb.co/XZsNqvpQ/Gemini-Generated-Image-gun6xagun6xagun6.jpg",
+                "https://i.ibb.co/xKnN5FTd/Gemini-Generated-Image-p6ja4up6ja4up6ja.jpg",
+                "https://i.ibb.co/3m2PJBwg/Gemini-Generated-Image-3eixfw3eixfw3eix.jpg",
+                "https://i.ibb.co/Gv7CmZtw/Gemini-Generated-Image-c95vc6c95vc6c95v.jpg",
+                "https://i.ibb.co/FpzvQQ9/Gemini-Generated-Image-chbvb6chbvb6chbv.jpg",
+                "https://i.ibb.co/j9SZk3wH/Gemini-Generated-Image-tv0c01tv0c01tv0c.jpg",
+                "https://i.ibb.co/B5my4JMQ/Gemini-Generated-Image-hk50l5hk50l5hk50.jpg",
+                "https://i.ibb.co/g85Yjv0/Gemini-Generated-Image-wkadxjwkadxjwkad.jpg",
+                "https://i.ibb.co/6RnLZQXL/Gemini-Generated-Image-gdd47mgdd47mgdd4.jpg",
+                "https://i.ibb.co/NbGwkPS/Gemini-Generated-Image-z95rbrz95rbrz95r.jpg",
+                "https://i.ibb.co/xStYbDb6/Gemini-Generated-Image-j1a18vj1a18vj1a1.jpg",
+                "https://i.ibb.co/Q3cPk27H/Gemini-Generated-Image-wk4jjowk4jjowk4j.jpg",
+                "https://i.ibb.co/Gf1wHV5J/Gemini-Generated-Image-680hfl680hfl680h.jpg",
+                "https://i.ibb.co/s9TBX5qN/Gemini-Generated-Image-t38qv8t38qv8t38q.jpg",
+                "https://i.ibb.co/W4gXL01n/Gemini-Generated-Image-y8tnd8y8tnd8y8tn.jpg",
+                "https://i.ibb.co/mVm37PBP/Gemini-Generated-Image-c20bzwc20bzwc20b.jpg",
+                "https://i.ibb.co/8hsZHGm/Gemini-Generated-Image-pqytjzpqytjzpqyt.jpg"
+            ];
+            let currentImageIndex = 0;
+            const transitionEffects = ['slide-left', 'slide-right', 'dissolve-effect', 'pixelate-in', 'fade-effect', 'glitch-effect', 'swirl-in'];
+            let collageImagesElements = []; 
+
+            images.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `ForkFiasco Collage Image ${index + 1}`; 
+                img.classList.add('collage-image');
+                if (index === 0) { 
+                    img.classList.add('active', 'fade-effect'); 
+                    img.dataset.effect = 'fade-effect'; 
+                }
+                collageContainer.appendChild(img);
+                collageImagesElements.push(img);
+            });
+
+            const collageStyle = document.createElement('style');
+            collageStyle.textContent = `
+                .collage-container { 
+                    position: relative; 
+                    width: 100%; 
+                    max-width: 640px;
+                    height: 320px; 
+                    overflow: hidden; 
+                    margin-left: auto; 
+                    margin-right: auto; 
+                    border-radius: 1rem; 
+                    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+                }
+                .collage-image { 
+                    position: absolute; 
+                    top:0; left:0; 
+                    width: 100%; height: 100%; 
+                    object-fit: cover; 
+                    opacity: 0; 
+                    transform: scale(1); 
+                    transition: opacity 0.8s ease-in-out; 
+                    will-change: opacity, transform, filter; 
+                }
+                .collage-image.active { 
+                    opacity: 1; 
+                }
+                .collage-image.exiting { 
+                    opacity: 0 !important;
+                }
+
+                /* Slide transitions (No Scaling) */
+                .collage-image.slide-left.active { animation: slideInFromRightNoScale 0.8s forwards; }
+                .collage-image.slide-left.exiting { animation: slideOutToLeftNoScale 0.8s forwards; }
+                @keyframes slideInFromRightNoScale { 
+                    from { transform: translateX(100%); opacity:0; } 
+                    to { transform: translateX(0%); opacity:1; } 
+                }
+                @keyframes slideOutToLeftNoScale { 
+                    from { transform: translateX(0%); opacity:1; } 
+                    to { transform: translateX(-100%); opacity:0; } 
+                }
+
+                .collage-image.slide-right.active { animation: slideInFromLeftNoScale 0.8s forwards; }
+                .collage-image.slide-right.exiting { animation: slideOutToRightNoScale 0.8s forwards; }
+                @keyframes slideInFromLeftNoScale { 
+                    from { transform: translateX(-100%); opacity:0; } 
+                    to { transform: translateX(0%); opacity:1; } 
+                }
+                @keyframes slideOutToRightNoScale { 
+                    from { transform: translateX(0%); opacity:1; } 
+                    to { transform: translateX(100%); opacity:0; } 
+                }
+
+                /* Dissolve effect (No Scaling) */
+                .collage-image.dissolve-effect.active { animation: dissolveIn 1s forwards; }
+                .collage-image.dissolve-effect.exiting { animation: dissolveOut 1s forwards; }
+                @keyframes dissolveIn { 
+                    from { opacity: 0; filter: blur(5px); } 
+                    to { opacity: 1; filter: blur(0px); } 
+                }
+                @keyframes dissolveOut { 
+                    from { opacity: 1; filter: blur(0px); } 
+                    to { opacity: 0; filter: blur(5px); } 
+                }
+                
+                /* Pixelate effect (No Scaling, relies on filter) */
+                .collage-image.pixelate-in.active { animation: pixelateInEffect 1.2s forwards; }
+                .collage-image.pixelate-in.exiting { animation: pixelateOutEffect 1.2s forwards; }
+                @keyframes pixelateInEffect {
+                    0% { opacity: 0; filter: url(#pixelate-filter-start); }
+                    50% { opacity: 0.7; filter: url(#pixelate-filter-mid); }
+                    100% { opacity: 1; filter: none; }
+                }
+                @keyframes pixelateOutEffect {
+                    0% { opacity: 1; filter: none; }
+                    50% { opacity: 0.7; filter: url(#pixelate-filter-mid); }
+                    100% { opacity: 0; filter: url(#pixelate-filter-start); }
+                }
+
+                /* Simple Fade effect (No Scaling) */
+                .collage-image.fade-effect.active { animation: fadeInSimple 0.8s forwards; }
+                .collage-image.fade-effect.exiting { animation: fadeOutSimple 0.8s forwards; }
+                @keyframes fadeInSimple { 
+                    from { opacity: 0; } 
+                    to { opacity: 1; } 
+                }
+                @keyframes fadeOutSimple { 
+                    from { opacity: 1; } 
+                    to { opacity: 0; } 
+                }
+
+                /* Glitch effect (No Scaling - ensure keyframes don't use scale) */
+                .collage-image.glitch-effect.active { animation: glitchInNoScale 0.8s forwards; }
+                .collage-image.glitch-effect.exiting { animation: glitchOutNoScale 0.8s forwards; }
+                @keyframes glitchInNoScale {
+                    0% { opacity: 0; transform: translateX(20px) skewX(-10deg); filter: saturate(0); }
+                    25% { opacity: 0.5; transform: translateX(-15px) skewX(8deg); }
+                    50% { opacity: 1; transform: translateX(10px) skewX(-6deg); filter: saturate(1.5); }
+                    75% { opacity: 0.8; transform: translateX(-5px) skewX(4deg); }
+                    100% { opacity: 1; transform: translateX(0) skewX(0deg); filter: saturate(1); }
+                }
+                @keyframes glitchOutNoScale {
+                    0% { opacity: 1; transform: translateX(0) skewX(0deg); }
+                    100% { opacity: 0; transform: translateX(20px) skewX(10deg); filter: brightness(0.5); }
+                }
+                 /* Swirl effect (No Scaling - ensure keyframes don't use scale) */
+                .collage-image.swirl-in.active { animation: swirlInEffectNoScale 1s forwards; }
+                .collage-image.swirl-in.exiting { animation: swirlOutEffectNoScale 1s forwards; }
+                @keyframes swirlInEffectNoScale {
+                    from { opacity: 0; transform: rotate(-180deg); filter: blur(10px); } /* Removed scale */
+                    to { opacity: 1; transform: rotate(0deg); filter: blur(0px); } /* Removed scale */
+                }
+                @keyframes swirlOutEffectNoScale {
+                    from { opacity: 1; transform: rotate(0deg); filter: blur(0px); } /* Removed scale */
+                    to { opacity: 0; transform: rotate(180deg); filter: blur(10px); } /* Removed scale */
+                }
+            `;
+            document.head.appendChild(collageStyle);
+
+            const svgFilters = `
+                <svg style="position:absolute; width:0; height:0; overflow:hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                    <filter id="pixelate-filter-start">
+                      <feGaussianBlur stdDeviation="15" in="SourceGraphic" result="blurred"/>
+                      <feComponentTransfer in="blurred" result="pixelated_alpha_heavy">
+                        <feFuncA type="discrete" tableValues="0 1"/>
+                      </feComponentTransfer>
+                      <feTurbulence type="fractalNoise" baseFrequency="0.3 0.3" numOctaves="1" seed="5" stitchTiles="stitch" result="noise_heavy"/>
+                      <feDisplacementMap in="SourceGraphic" in2="noise_heavy" scale="60" xChannelSelector="R" yChannelSelector="G" result="displaced_heavy"/>
+                      <feComposite operator="in" in2="pixelated_alpha_heavy" in="displaced_heavy"/>
+                    </filter>
+                     <filter id="pixelate-filter-mid">
+                      <feGaussianBlur stdDeviation="7" in="SourceGraphic" result="blurred_mid"/>
+                       <feComponentTransfer in="blurred_mid" result="pixelated_alpha_mid">
+                        <feFuncA type="discrete" tableValues="0 1"/>
+                      </feComponentTransfer>
+                      <feTurbulence type="fractalNoise" baseFrequency="0.15 0.15" numOctaves="1" seed="3" stitchTiles="stitch" result="noise_mid"/>
+                      <feDisplacementMap in="SourceGraphic" in2="noise_mid" scale="30" xChannelSelector="R" yChannelSelector="G" result="displaced_mid"/>
+                       <feComposite operator="in" in2="pixelated_alpha_mid" in="displaced_mid"/>
+                    </filter>
+                  </defs>
+                </svg>
+            `;
+            document.body.insertAdjacentHTML('beforeend', svgFilters);
+
+            // MODIFIED setInterval for collage to fix classList.remove error and simplify logic
+            setInterval(() => {
+                const currentImage = collageImagesElements[currentImageIndex];
+                const currentEffectName = currentImage.dataset.effect; 
+
+                currentImage.classList.remove('active'); 
+                if (currentEffectName) { 
+                    currentImage.classList.add('exiting'); 
+                } else {
+                    currentImage.classList.add('fade-effect', 'exiting'); 
+                }
+
+
+                const imageToCleanup = currentImage; 
+                setTimeout(() => {
+                    if (imageToCleanup.parentNode) {
+                        imageToCleanup.className = 'collage-image'; 
+                    }
+                }, 850); 
+
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                const nextImage = collageImagesElements[currentImageIndex];
+                const nextEffectName = transitionEffects[Math.floor(Math.random() * transitionEffects.length)];
+
+                nextImage.className = 'collage-image'; 
+                nextImage.dataset.effect = nextEffectName; 
+                
+                void nextImage.offsetWidth; 
+                
+                nextImage.classList.add('active', nextEffectName); 
+            }, 4800); 
+        }
+
+        document.addEventListener('click', function(e) {
+            let targetElement = e.target;
+            const isInteractiveButton = targetElement.closest('.interactive-button, button, input[type="button"], input[type="submit"]');
+            const isGameCard = targetElement.closest('.card-container'); 
+            const isNav = targetElement.closest('nav a'); 
+            const isAnchor = targetElement.closest('a'); 
+            const isInput = targetElement.closest('input, select, textarea'); 
+
+            if (isInteractiveButton || isGameCard || isNav || isAnchor || isInput) {
+                return; 
+            }
+
+            const splatter = document.createElement('div');
+            splatter.classList.add('splatter');
+            const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6']; 
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            splatter.style.backgroundImage = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 0 C${10 + Math.random()*20} ${20 + Math.random()*20}, ${10 + Math.random()*20} ${80 - Math.random()*20}, 50 100 C${90-Math.random()*20} ${80-Math.random()*20}, ${90-Math.random()*20} ${20+Math.random()*20}, 50 0 Z" fill="${encodeURIComponent(randomColor)}" opacity="${0.6 + Math.random()*0.2}" transform="rotate(${Math.random()*360} 50 50) scale(${0.7 + Math.random()*0.5})"/><circle cx="${20 + Math.random()*60}" cy="${20 + Math.random()*60}" r="${3 + Math.random()*8}" fill="${encodeURIComponent(colors[Math.floor(Math.random()*colors.length)])}" opacity="${0.4 + Math.random()*0.3}"/></svg>')`;
+
+            document.body.appendChild(splatter);
+            splatter.style.left = e.clientX + 'px';
+            splatter.style.top = e.clientY + 'px';
+            splatter.addEventListener('animationend', function() { if(splatter.parentNode) splatter.remove(); }); 
+        });
+
+        let sparkleTimeout;
+        let sparkleCount = 0;
+        const MAX_SPARKLES = 20; 
+        document.addEventListener('mousemove', function(e) {
+            clearTimeout(sparkleTimeout);
+            sparkleTimeout = setTimeout(() => {
+                if (sparkleCount >= MAX_SPARKLES) return; 
+
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                const randomValue = Math.random();
+                if (randomValue > 0.75) sparkle.classList.add('red');
+                else if (randomValue > 0.45) sparkle.classList.add('gold');
+                else if (randomValue > 0.20) sparkle.classList.add('silver');
+                else sparkle.classList.add('blue-sparkle'); 
+
+                document.body.appendChild(sparkle);
+                sparkleCount++;
+                sparkle.style.left = (e.clientX - 4 + (Math.random()*12-6)) + 'px';
+                sparkle.style.top = (e.clientY - 4 + (Math.random()*12-6)) + 'px';
+                sparkle.addEventListener('animationend', function() {
+                    if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
+                    sparkleCount--; 
+                });
+            }, 25); 
+        });
+
+        const particlesContainer = document.getElementById('kitchenChaosParticlesContainer');
+        const particleTypes = ['tomato', 'cheese', 'fork-icon', 'chili', 'egg', 'whisk', 'rolling-pin', 'pan', 'explosion'];
+        const numParticles = 50; 
+
+        function createParticle() {
+            if (!particlesContainer) return;
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+            particle.classList.add(type);
+
+            particle.style.setProperty('--start-x', `${Math.random() * 150 - 75}vw`);
+            particle.style.setProperty('--start-y', `${Math.random() * 150 - 75}vh`);
+            particle.style.setProperty('--mid-x', `${Math.random() * 300 - 150}vw`);
+            particle.style.setProperty('--mid-y', `${Math.random() * 300 - 150}vh`);
+            particle.style.setProperty('--end-x', `${Math.random() * 150 - 75}vw`);
+            particle.style.setProperty('--end-y', `${Math.random() * 150 - 75}vh`);
+
+            const size = Math.random() * 25 + 8; 
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particle.style.animationDelay = `${Math.random() * 12}s`; 
+            particle.style.animationDuration = `${Math.random() * 8 + 9}s`; 
+
+            particlesContainer.appendChild(particle);
+
+            particle.addEventListener('animationend', () => {
+                if(particle.parentNode) particle.remove();
+            });
+        }
+        if (particlesContainer) {
+             for (let i = 0; i < numParticles; i++) {
+                setTimeout(createParticle, Math.random() * 3000); 
+            }
+            setInterval(createParticle, 1800); 
+        }
+
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach(el => {
+            el.style.transition = el.style.transition || 'opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1.1)';
+            scrollObserver.observe(el);
+        });
+
+    </script>
+
+</body>
+</html>
