@@ -638,23 +638,6 @@
         }
         .wallet-text-link:hover::after { width: 100%; right: 0; }
 
-        .splatter {
-            position: fixed;
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            pointer-events: none;
-            background-size: contain;
-            background-repeat: no-repeat;
-            z-index: 9999;
-            transform: translate(-50%, -50%) scale(0);
-            animation: splatterEffect 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-        @keyframes splatterEffect {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.2) rotate(15deg); opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(0.8) rotate(-10deg); opacity: 0; }
-        }
-
         .sparkle {
             position: fixed;
             width: 8px; height: 8px;
@@ -672,6 +655,47 @@
         @keyframes sparkleEffect {
             0% { transform: scale(1) translateY(0px); opacity: 1; }
             100% { transform: scale(0) translateY(-30px) rotate(90deg); opacity: 0; }
+        }
+
+        .copy-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--brand-red);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            border: 2px solid var(--brand-red-dark);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5), var(--chaos-glow-strong);
+            z-index: 10001;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: floatAndFade 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            pointer-events: none;
+        }
+
+        .copy-notification svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes floatAndFade {
+            0% {
+                transform: translateX(-50%) translateY(100%);
+                opacity: 0;
+            }
+            15%, 85% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(-50px);
+                opacity: 0;
+            }
         }
 
     </style>
@@ -988,7 +1012,6 @@
                             Copy
                         </button>
                     </div>
-                    <p id="copyStatus" class="text-sm text-green-400 mt-2 h-4 text-center"></p>
                 </div>
                 <p class="text-xs md:text-sm text-yellow-400 bg-yellow-900/30 p-3 md:p-4 rounded-lg border border-yellow-700/50"><strong class="font-semibold">Critically Important:</strong> Always double-check the contract address. Stay safe and fork responsibly! (Seriously, don't poke electrical sockets with forks).</p>
             </div>
@@ -1526,27 +1549,35 @@
 
         const copyContractBtn = document.getElementById('copyContractBtn');
         const contractAddressInput = document.getElementById('contractAddress');
-        const copyStatusP = document.getElementById('copyStatus');
+        
         if (copyContractBtn && contractAddressInput) {
             copyContractBtn.addEventListener('click', function() {
-                contractAddressInput.select(); 
-                contractAddressInput.setSelectionRange(0, 99999); 
-                try {
-                    var successful = document.execCommand('copy'); 
-                    if(successful){
-                        copyStatusP.textContent = 'Copied to clipboard!';
-                        copyContractBtn.textContent = 'Copied!';
-                        if(popSound && typeof Tone !== 'undefined' && Tone.context.state === 'running') popSound.triggerAttackRelease("C5", "8n"); 
-                        setTimeout(() => { copyStatusP.textContent = ''; copyContractBtn.textContent = 'Copy'; }, 2000); 
-                    } else {
-                         copyStatusP.textContent = 'Failed to copy.';
-                         setTimeout(() => { copyStatusP.textContent = ''; }, 2000);
-                    }
-                } catch (err) {
-                    copyStatusP.textContent = 'Oops, unable to copy!';
-                    setTimeout(() => { copyStatusP.textContent = ''; }, 2000);
-                    console.error('Fallback: Oops, unable to copy', err);
+                const address = contractAddressInput.value;
+
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = address;
+                tempTextArea.style.position = 'absolute';
+                tempTextArea.style.left = '-9999px';
+                document.body.appendChild(tempTextArea);
+                
+                tempTextArea.select();
+                document.execCommand('copy');
+                
+                document.body.removeChild(tempTextArea);
+
+                // Show custom notification
+                const notification = document.createElement('div');
+                notification.className = 'copy-notification';
+                notification.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M11 2v10.155C8.235 12.561 6 14.524 6 17.5c0 3.038 2.462 5.5 5.5 5.5s5.5-2.462 5.5-5.5c0-2.976-2.235-4.939-5-5.345V2h-1zm-4 0v10.535C4.222 13.131 3 14.763 3 16.5c0 1.933 1.567 3.5 3.5 3.5v-1c-1.379 0-2.5-1.121-2.5-2.5 0-1.107.625-2.203 2-2.818V2H7zm10 0v11.682c1.375.615 2 1.711 2 2.818 0 1.379-1.121 2.5-2.5 2.5v1c1.933 0 3.5-1.567 3.5-3.5 0-1.737-1.222-3.369-3-3.965V2h-1z"/></svg> <span>ADDRESS COPIED!</span>`;
+                document.body.appendChild(notification);
+                
+                if(popSound && typeof Tone !== 'undefined' && Tone.context.state === 'running') {
+                    popSound.triggerAttackRelease("C5", "8n"); 
                 }
+
+                setTimeout(() => {
+                    notification.remove();
+                }, 2900);
             });
         }
 
