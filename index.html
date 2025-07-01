@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForkFiasco ($FORK) - ULTIMATE KITCHEN CHAOS UNLEASHED!</title>
+    <!-- Favicon Added -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Cpath%20fill='%2395A5A6'%20d='M29%205V36h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203z'/%3E%3Cpath%20fill='%237F8C8D'%20d='M20%205v23h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203zm18%200v23h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203z'/%3E%3Cpath%20fill='%23BDC3C7'%20d='M12%2028v12h40V34c0-3.314-2.686-6-6-6H18c-3.314%200-6%202.686-6%206v6z'/%3E%3Ccircle%20fill='%23FFF'%20stroke='%23000'%20stroke-width='1.5'%20cx='27'%20cy='34'%20r='4'/%3E%3Ccircle%20fill='%23000'%20cx='26'%20cy='35'%20r='1.5'/%3E%3Ccircle%20fill='%23FFF'%20stroke='%23000'%20stroke-width='1.5'%20cx='37'%20cy='34'%20r='4'/%3E%3Ccircle%20fill='%23000'%20cx='38'%20cy='35'%20r='1.5'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -681,17 +682,24 @@
     <nav class="sticky-header bg-white/80 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2 text-xl md:text-2xl font-bold text-gray-800">
-                <svg class="frenzy-fork-logo h-7 w-7 md:h-10 md:w-10 text-red-600 transition-transform duration-300" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M28 58V42C28 40.8954 28.8954 40 30 40H34C35.1046 40 36 40.8954 36 42V58C36 60.2091 34.2091 62 32 62C29.7909 62 28 60.2091 28 58Z" fill="#BDC3C7"/>
-                    <path d="M12 40H52V34C52 28.4772 47.5228 24 42 24H22C16.4772 24 12 28.4772 12 34V40Z" fill="#BDC3C7"/>
-                    <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V24H20V5Z" fill="#7F8C8D"/>
-                    <path d="M32 2C30.3431 2 29 3.34315 29 5V32H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
-                    <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V24H44V5Z" fill="#7F8C8D"/>
-                    <circle cx="27" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
-                    <circle cx="26" cy="34" r="2" fill="black"/>
-                    <circle cx="37" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
-                    <circle cx="38" cy="34" r="2" fill="black"/>
-                    <path d="M28 38C29.6667 40.5 34.3333 40.5 36 38" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Avatar Updated with ID -->
+                <svg id="nav-fork" class="frenzy-fork-logo h-7 w-7 md:h-10 md:w-10 text-red-600 transition-transform duration-300" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g class="fork-body">
+                        <path d="M28 58V42C28 40.8954 28.8954 40 30 40H34C35.1046 40 36 40.8954 36 42V58C36 60.2091 34.2091 62 32 62C29.7909 62 28 60.2091 28 58Z" fill="#BDC3C7"/>
+                        <path d="M12 40H52V34C52 28.4772 47.5228 24 42 24H22C16.4772 24 12 28.4772 12 34V40Z" fill="#BDC3C7"/>
+                        <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V24H20V5Z" fill="#7F8C8D"/>
+                        <path d="M32 2C30.3431 2 29 3.34315 29 5V32H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
+                        <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V24H44V5Z" fill="#7F8C8D"/>
+                    </g>
+                    <g class="fork-face">
+                        <circle class="eye left" cx="27" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle class="pupil left" cx="27" cy="33" r="2" fill="black"/>
+                        <path class="eyelid left" d="M 22 33 A 5 5 0 0 1 32 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 27px 33px; transition: transform 0.1s ease-in-out;"/>
+                        <circle class="eye right" cx="37" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle class="pupil right" cx="37" cy="33" r="2" fill="black"/>
+                        <path class="eyelid right" d="M 32 33 A 5 5 0 0 1 42 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 37px 33px; transition: transform 0.1s ease-in-out;"/>
+                        <path class="mouth" d="M28 38C29.6667 40.5 34.3333 40.5 36 38" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    </g>
                 </svg>
                 <span class="text-red-600 text-lg md:text-xl">Fork</span><span class="text-gray-700 text-lg md:text-xl">Fiasco</span>
             </a>
@@ -728,17 +736,24 @@
         <div class="mega-utensil"></div>
         <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
             <div class="mb-8 md:mb-10 flex justify-center animate-on-scroll fade-in-up">
-                 <svg class="frenzy-fork-logo h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 text-red-600" style="animation-duration: 2.8s;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M28 58V42C28 40.8954 28.8954 40 30 40H34C35.1046 40 36 40.8954 36 42V58C36 60.2091 34.2091 62 32 62C29.7909 62 28 60.2091 28 58Z" fill="#BDC3C7"/>
-                    <path d="M12 40H52V34C52 28.4772 47.5228 24 42 24H22C16.4772 24 12 28.4772 12 34V40Z" fill="#BDC3C7"/>
-                    <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V24H20V5Z" fill="#7F8C8D"/>
-                    <path d="M32 2C30.3431 2 29 3.34315 29 5V32H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
-                    <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V24H44V5Z" fill="#7F8C8D"/>
-                    <circle cx="27" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
-                    <circle cx="26" cy="34" r="2" fill="black"/>
-                    <circle cx="37" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
-                    <circle cx="38" cy="34" r="2" fill="black"/>
-                    <path d="M28 38C29.6667 40.5 34.3333 40.5 36 38" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"/>
+                 <!-- Avatar Updated with ID and class removed -->
+                 <svg id="hero-fork" class="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 text-red-600" style="animation-duration: 2.8s;" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g class="fork-body">
+                        <path d="M28 58V42C28 40.8954 28.8954 40 30 40H34C35.1046 40 36 40.8954 36 42V58C36 60.2091 34.2091 62 32 62C29.7909 62 28 60.2091 28 58Z" fill="#BDC3C7"/>
+                        <path d="M12 40H52V34C52 28.4772 47.5228 24 42 24H22C16.4772 24 12 28.4772 12 34V40Z" fill="#BDC3C7"/>
+                        <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V24H20V5Z" fill="#7F8C8D"/>
+                        <path d="M32 2C30.3431 2 29 3.34315 29 5V32H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
+                        <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V24H44V5Z" fill="#7F8C8D"/>
+                    </g>
+                    <g class="fork-face">
+                        <circle class="eye left" cx="27" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle class="pupil left" cx="27" cy="33" r="2" fill="black"/>
+                        <path class="eyelid left" d="M 22 33 A 5 5 0 0 1 32 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 27px 33px; transition: transform 0.1s ease-in-out;"/>
+                        <circle class="eye right" cx="37" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle class="pupil right" cx="37" cy="33" r="2" fill="black"/>
+                        <path class="eyelid right" d="M 32 33 A 5 5 0 0 1 42 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 37px 33px; transition: transform 0.1s ease-in-out;"/>
+                        <path class="mouth" d="M28 38C29.6667 40.5 34.3333 40.5 36 38" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    </g>
                 </svg>
             </div>
             <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-4 md:mb-6 leading-tight drop-shadow-lg animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
@@ -777,6 +792,7 @@
                     </p>
                 </div>
                 <div class="lg:w-1/2 relative animate-on-scroll fade-in-right" style="animation-delay: 0.2s;">
+                    <!-- Image for "About" section - URL updated by user -->
                     <img src="https://i.ibb.co/Kzxc3Wm4/Gemini-Generated-Image-gxvfwigxvfwigxvf.jpg" alt="Frenzy Fork - Маскот проекта ForkFiasco на кухне" class="rounded-xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-108 hover:rotate-[-3deg] hover:shadow-red-400/50">
                     <div class="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-20 h-20 md:w-28 md:h-28 bg-red-500 rounded-full opacity-15 animate-ping-slow-extra" style="animation-duration: 3.2s;"></div>
                     <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 rounded-full opacity-15 animate-pulse" style="animation-duration: 2.5s; animation-timing-function: ease-in-out;"></div>
@@ -874,6 +890,7 @@
         </div>
     </section>
 
+    <!-- Interactive Game Section: Food Fight Pairs - REVERTED TO SIMPLER STYLING -->
     <section id="interactive" class="py-16 md:py-28 bg-sky-100 relative overflow-hidden">
         <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] sm:text-[20rem] md:text-[30rem] text-sky-200/40 opacity-25 font-black select-none animate-pulse-slow-game">
             GAME
@@ -896,7 +913,8 @@
                     <div id="pairsTimerDisplay">Time: <span id="pairsTimerValue">0</span>s</div>
                 </div>
                 <div id="cardGrid">
-                    </div>
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
                 <div id="cardGameControls" class="text-center mt-6 md:mt-8">
                     <button id="startGameButton" class="btn-primary interactive-button">Start Food Fight!</button>
                 </div>
@@ -911,16 +929,24 @@
             <p class="section-subtitle">Kitchen a mess? Frenzy Fork has an excuse for that! Click the button for a perfectly absurd explanation from the chaos master himself! <strong class="text-gray-800">Share this masterpiece – save a friend!</strong></p>
             <div id="excuseGeneratorContainer" class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
                 <div id="frenzyForkExcuseMasterContainer" class="md:w-1/3 flex justify-center">
-                     <svg id="frenzyForkExcuseMaster" class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 text-gray-700" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 15C20 13.3431 21.3431 12 23 12C24.6569 12 26 13.3431 26 15V38H20V15Z" fill="#7F8C8D"/>
-                        <path d="M32 12C30.3431 12 29 13.3431 29 15V46H35V15C35 13.3431 33.6569 12 32 12Z" fill="#95A5A6"/>
-                        <path d="M44 15C44 13.3431 42.6569 12 41 12C39.3431 12 38 13.3431 38 15V38H44V15Z" fill="#7F8C8D"/>
-                        <path d="M18 38C14.6863 38 12 40.6863 12 44V50H52V44C52 40.6863 49.3137 38 46 38H18Z" fill="#BDC3C7"/>
-                        <circle cx="25" cy="44" r="6" fill="white" stroke="black" stroke-width="1.5"/>
-                        <circle cx="24" cy="45" r="2.5" fill="black"/>
-                        <circle cx="39" cy="44" r="6" fill="white" stroke="black" stroke-width="1.5"/>
-                        <circle cx="40" cy="45" r="2.5" fill="black"/>
-                        <path d="M29 52C30.5 54.5 33.5 54.5 35 52" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+                     <!-- Avatar Updated with ID -->
+                     <svg id="excuse-fork" class="frenzy-fork-logo w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 text-gray-700" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="fork-body">
+                            <path d="M28 58V42C28 40.8954 28.8954 40 30 40H34C35.1046 40 36 40.8954 36 42V58C36 60.2091 34.2091 62 32 62C29.7909 62 28 60.2091 28 58Z" fill="#BDC3C7"/>
+                            <path d="M12 40H52V34C52 28.4772 47.5228 24 42 24H22C16.4772 24 12 28.4772 12 34V40Z" fill="#BDC3C7"/>
+                            <path d="M20 5C20 3.34315 21.3431 2 23 2C24.6569 2 26 3.34315 26 5V24H20V5Z" fill="#7F8C8D"/>
+                            <path d="M32 2C30.3431 2 29 3.34315 29 5V32H35V5C35 3.34315 33.6569 2 32 2Z" fill="#95A5A6"/>
+                            <path d="M44 5C44 3.34315 42.6569 2 41 2C39.3431 2 38 3.34315 38 5V24H44V5Z" fill="#7F8C8D"/>
+                        </g>
+                        <g class="fork-face">
+                            <circle class="eye left" cx="27" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                            <circle class="pupil left" cx="27" cy="33" r="2" fill="black"/>
+                            <path class="eyelid left" d="M 22 33 A 5 5 0 0 1 32 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 27px 33px; transition: transform 0.1s ease-in-out;"/>
+                            <circle class="eye right" cx="37" cy="33" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                            <circle class="pupil right" cx="37" cy="33" r="2" fill="black"/>
+                            <path class="eyelid right" d="M 32 33 A 5 5 0 0 1 42 33" fill="#BDC3C7" stroke="black" stroke-width="1.5" style="transform: scaleY(0); transform-origin: 37px 33px; transition: transform 0.1s ease-in-out;"/>
+                            <path class="mouth" d="M28 38C29.6667 40.5 34.3333 40.5 36 38" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        </g>
                     </svg>
                 </div>
                 <div class="md:w-2/3 flex flex-col items-center md:items-start w-full">
@@ -1381,7 +1407,7 @@
             const excuseTextEl = document.getElementById('excuseText');
             const generateExcuseBtn = document.getElementById('generateExcuseBtn');
             const shareExcuseBtn = document.getElementById('shareExcuseBtn');
-            const frenzyForkExcuseMasterEl = document.getElementById('frenzyForkExcuseMaster');
+            const excuseForkEl = document.getElementById('excuse-fork');
 
             const excuses = [ 
                 "The spaghetti spontaneously decided to redecorate. It's art!",
@@ -1451,7 +1477,7 @@
             }
 
             if(generateExcuseBtn) generateExcuseBtn.addEventListener('click', () => {
-                if (frenzyForkExcuseMasterEl) frenzyForkExcuseMasterEl.classList.add('thinking'); 
+                if (excuseForkEl) excuseForkEl.classList.add('thinking'); 
                 if (typeof Tone !== 'undefined' && Tone.context.state === 'running') {
                     const thinkingSoundChoice = Math.random();
                     if (thinkingSoundChoice < 0.4 && kitchenClatterSound) {
@@ -1476,10 +1502,10 @@
                         excuseTextEl.classList.add('visible');
                     }
 
-                    if (frenzyForkExcuseMasterEl) { 
-                        frenzyForkExcuseMasterEl.classList.remove('thinking');
-                        frenzyForkExcuseMasterEl.classList.add('revealing');
-                        setTimeout(() => frenzyForkExcuseMasterEl.classList.remove('revealing'), 850);
+                    if (excuseForkEl) { 
+                        excuseForkEl.classList.remove('thinking');
+                        excuseForkEl.classList.add('revealing');
+                        setTimeout(() => excuseForkEl.classList.remove('revealing'), 850);
                     }
                     if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && dingSound) {
                          dingSound.triggerAttackRelease("E6", "0.5s", Tone.now() + 0.05);
@@ -1763,29 +1789,7 @@
             }, 4800); 
         }
 
-        document.addEventListener('click', function(e) {
-            let targetElement = e.target;
-            const isInteractiveButton = targetElement.closest('.interactive-button, button, input[type="button"], input[type="submit"]');
-            const isGameCard = targetElement.closest('.card-container'); 
-            const isNav = targetElement.closest('nav a'); 
-            const isAnchor = targetElement.closest('a'); 
-            const isInput = targetElement.closest('input, select, textarea'); 
-
-            if (isInteractiveButton || isGameCard || isNav || isAnchor || isInput) {
-                return; 
-            }
-
-            const splatter = document.createElement('div');
-            splatter.classList.add('splatter');
-            const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6']; 
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            splatter.style.backgroundImage = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 0 C${10 + Math.random()*20} ${20 + Math.random()*20}, ${10 + Math.random()*20} ${80 - Math.random()*20}, 50 100 C${90-Math.random()*20} ${80-Math.random()*20}, ${90-Math.random()*20} ${20+Math.random()*20}, 50 0 Z" fill="${encodeURIComponent(randomColor)}" opacity="${0.6 + Math.random()*0.2}" transform="rotate(${Math.random()*360} 50 50) scale(${0.7 + Math.random()*0.5})"/><circle cx="${20 + Math.random()*60}" cy="${20 + Math.random()*60}" r="${3 + Math.random()*8}" fill="${encodeURIComponent(colors[Math.floor(Math.random()*colors.length)])}" opacity="${0.4 + Math.random()*0.3}"/></svg>')`;
-
-            document.body.appendChild(splatter);
-            splatter.style.left = e.clientX + 'px';
-            splatter.style.top = e.clientY + 'px';
-            splatter.addEventListener('animationend', function() { if(splatter.parentNode) splatter.remove(); }); 
-        });
+        // REMOVED Splatter effect on click
 
         let sparkleTimeout;
         let sparkleCount = 0;
@@ -1874,6 +1878,121 @@
             el.style.transition = el.style.transition || 'opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1.1)';
             scrollObserver.observe(el);
         });
+
+        // --- NEW: Different Fork Animations Logic ---
+        function initAllForkAnimations() {
+            
+            // 1. Cursor Following Fork (Hero Section ONLY)
+            const cursorFork = document.getElementById('hero-fork');
+            
+            if (cursorFork) {
+                const movePupils = (fork, x, y) => {
+                    const pupils = fork.querySelectorAll('.pupil');
+                    pupils.forEach(pupil => {
+                        pupil.style.transform = `translate(${x}px, ${y}px)`;
+                        pupil.style.transition = 'transform 0.1s ease-out';
+                    });
+                };
+
+                window.addEventListener('mousemove', (e) => {
+                    const eye = cursorFork.querySelector('.eye.left');
+                    if (!eye) return;
+
+                    const rect = eye.getBoundingClientRect();
+                    const eyeCenterX = rect.left + rect.width / 2;
+                    const eyeCenterY = rect.top + rect.height / 2;
+
+                    const deltaX = e.clientX - eyeCenterX;
+                    const deltaY = e.clientY - eyeCenterY;
+                    const angle = Math.atan2(deltaY, deltaX);
+                    
+                    const maxPupilMove = 2;
+                    const pupilX = Math.cos(angle) * maxPupilMove;
+                    const pupilY = Math.sin(angle) * maxPupilMove;
+
+                    movePupils(cursorFork, pupilX, pupilY);
+                });
+                
+                initBlinking(cursorFork);
+            }
+            
+            // 2. Nav Fork (Just blinking)
+            const navFork = document.getElementById('nav-fork');
+            if(navFork) {
+                initBlinking(navFork);
+            }
+
+            // 3. Excuse Generator Fork
+            const excuseFork = document.getElementById('excuse-fork');
+            const generateExcuseBtn = document.getElementById('generateExcuseBtn');
+
+            if (excuseFork) {
+                const pupils = excuseFork.querySelectorAll('.pupil');
+                let shiftyInterval;
+
+                const startShiftyEyes = () => {
+                    shiftyInterval = setInterval(() => {
+                        const x = (Math.random() - 0.5) * 3;
+                        const y = (Math.random() - 0.5) * 2;
+                        pupils.forEach(p => {
+                             p.style.transform = `translate(${x}px, ${y}px)`;
+                             p.style.transition = 'transform 0.3s ease-in-out';
+                        });
+                    }, 800);
+                };
+
+                const stopShiftyEyes = () => {
+                    clearInterval(shiftyInterval);
+                    pupils.forEach(p => p.style.transform = 'translate(0,0)');
+                };
+                
+                initBlinking(excuseFork, 4000); // Blink a bit less often
+                startShiftyEyes(); // Start shifty eyes by default
+
+                if (generateExcuseBtn) {
+                    generateExcuseBtn.addEventListener('click', () => {
+                        stopShiftyEyes();
+                        
+                        // "Thinking" animation - eye roll
+                        pupils.forEach(p => {
+                            p.style.transition = 'transform 0.4s cubic-bezier(0.5, 0, 0.5, 1)';
+                            p.style.transform = `translate(0, -3px)`; 
+                        });
+                        
+                        // After thinking, go back to shifty
+                        setTimeout(() => {
+                           pupils.forEach(p => p.style.transform = 'translate(0,0)');
+                           setTimeout(startShiftyEyes, 200);
+                        }, 800); // Corresponds to the thinking animation duration
+                    });
+                }
+            }
+        }
+
+        // Generic Blinking function
+        function initBlinking(forkElement, baseInterval = 2500) {
+            const eyelids = forkElement.querySelectorAll('.eyelid');
+            if (eyelids.length === 0) return;
+
+            function blink() {
+                eyelids.forEach(lid => lid.style.transform = 'scaleY(1)');
+                setTimeout(() => {
+                    eyelids.forEach(lid => lid.style.transform = 'scaleY(0)');
+                }, 150);
+
+                // Schedule next blink
+                setTimeout(blink, baseInterval + Math.random() * 2000);
+            }
+            // Start the first blink
+            setTimeout(blink, baseInterval + Math.random() * 2000);
+        }
+
+        // Wait for the document to be fully loaded to run the animation
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAllForkAnimations);
+        } else {
+            initAllForkAnimations();
+        }
 
     </script>
 
