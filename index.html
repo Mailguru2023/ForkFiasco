@@ -203,17 +203,18 @@
 
 
         .frenzy-fork-logo { width: 80px; height: 80px; animation: floatWiggleSpinUltraEnhanced 3.2s ease-in-out infinite; will-change: transform; }
+        /* Updated Animation */
         @keyframes floatWiggleSpinUltraEnhanced {
             0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2)); }
-            10% { transform: translateY(-18px) translateX(7px) rotate(-15deg) scale(1.15) skew(-5deg, 3deg); filter: drop-shadow(3px 5px 5px var(--brand-red)); }
+            10% { transform: translateY(-8px) translateX(4px) rotate(-8deg) scale(1.05) skew(-3deg, 2deg); filter: drop-shadow(3px 4px 4px var(--brand-red)); }
             20% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); }
-            30% { transform: translateY(-18px) translateX(-7px) rotate(15deg) scale(1.15) skew(5deg, -3deg); filter: drop-shadow(-3px 5px 5px var(--brand-yellow)); }
-            40% { transform: translateY(2px) translateX(0px) rotate(-10deg) scale(0.88) skew(0deg, 0deg); }
-            50% { transform: translateY(-12px) translateX(4px) rotate(8deg) scale(1.09) skew(-4deg, 2deg); filter: drop-shadow(2px 3px 4px var(--brand-red)); }
+            30% { transform: translateY(-8px) translateX(-4px) rotate(8deg) scale(1.05) skew(3deg, -2deg); filter: drop-shadow(-3px 4px 4px var(--brand-yellow)); }
+            40% { transform: translateY(1px) translateX(0px) rotate(-5deg) scale(0.95) skew(0deg, 0deg); }
+            50% { transform: translateY(-6px) translateX(2px) rotate(4deg) scale(1.03) skew(-2deg, 1deg); filter: drop-shadow(2px 2px 3px var(--brand-red)); }
             60% { transform: translateY(0) translateX(0) rotate(0deg) scale(1) skew(0deg, 0deg); }
-            70% { transform: translateY(-15px) translateX(-4px) rotate(-12deg) scale(1.1) skew(4deg, -2deg); filter: drop-shadow(-2px 4px 5px var(--brand-yellow)); }
-            80% { transform: translateY(1px) translateX(0px) rotate(7deg) scale(0.93) skew(0deg, 0deg); }
-            90% { transform: translateY(-10px) translateX(0px) rotate(0deg) scale(1.08) skew(-3deg, 0deg); filter: drop-shadow(1px 2px 3px var(--brand-red)); }
+            70% { transform: translateY(-7px) translateX(-2px) rotate(-6deg) scale(1.04) skew(2deg, -1deg); filter: drop-shadow(-2px 3px 4px var(--brand-yellow)); }
+            80% { transform: translateY(0.5px) translateX(0px) rotate(3deg) scale(0.97) skew(0deg, 0deg); }
+            90% { transform: translateY(-5px) translateX(0px) rotate(0deg) scale(1.02) skew(-1deg, 0deg); filter: drop-shadow(1px 2px 3px var(--brand-red)); }
         }
         .section-title { font-weight: 900; font-size: 2.5rem; line-height: 1.1; text-align: center; margin-bottom: 2rem; color: var(--text-dark); animation: textPopInEnhanced 1s cubic-bezier(0.68, -0.6, 0.27, 1.6) forwards; text-shadow: 1px 1px 0px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.05); }
         @keyframes textPopInEnhanced {
@@ -638,25 +639,6 @@
         }
         .wallet-text-link:hover::after { width: 100%; right: 0; }
 
-        .sparkle {
-            position: fixed;
-            width: 8px; height: 8px;
-            pointer-events: none;
-            z-index: 10000;
-            border-radius: 50%;
-            animation: sparkleEffect 0.7s ease-out forwards;
-        }
-        .sparkle.red { background-color: var(--brand-red); box-shadow: 0 0 5px var(--brand-red), 0 0 10px var(--brand-red); }
-        .sparkle.gold { background-color: var(--brand-yellow); box-shadow: 0 0 5px var(--brand-yellow), 0 0 10px var(--brand-yellow); }
-        .sparkle.silver { background-color: #bdc3c7; box-shadow: 0 0 5px #bdc3c7, 0 0 10px #bdc3c7; }
-        .sparkle.blue-sparkle { background-color: #3B82F6; box-shadow: 0 0 7px #3B82F6, 0 0 14px #3B82F6; }
-
-
-        @keyframes sparkleEffect {
-            0% { transform: scale(1) translateY(0px); opacity: 1; }
-            100% { transform: scale(0) translateY(-30px) rotate(90deg); opacity: 0; }
-        }
-
         .copy-notification {
             position: fixed;
             bottom: 30px;
@@ -1064,7 +1046,7 @@
         </div>
     </section>
 
-    <footer class="py-12 md:py-16 bg-gray-900 text-gray-400">
+    <footer class="py-8 md:py-12 bg-gray-900 text-gray-400">
         <div class="container mx-auto px-4 sm:px-6 text-center">
             <p class="mb-4 md:mb-6 text-md md:text-lg">© <span id="currentYear"></span> ForkFiasco. All Rights Reserved (but chaos is always encouraged!).</p>
             <p class="text-xs">Remember: Cryptocurrency investments are high risk. Do your own research.</p>
@@ -1819,35 +1801,6 @@
                 nextImage.classList.add('active', nextEffectName); 
             }, 4800); 
         }
-
-        // REMOVED Splatter effect on click
-
-        let sparkleTimeout;
-        let sparkleCount = 0;
-        const MAX_SPARKLES = 20; 
-        document.addEventListener('mousemove', function(e) {
-            clearTimeout(sparkleTimeout);
-            sparkleTimeout = setTimeout(() => {
-                if (sparkleCount >= MAX_SPARKLES) return; 
-
-                const sparkle = document.createElement('div');
-                sparkle.classList.add('sparkle');
-                const randomValue = Math.random();
-                if (randomValue > 0.75) sparkle.classList.add('red');
-                else if (randomValue > 0.45) sparkle.classList.add('gold');
-                else if (randomValue > 0.20) sparkle.classList.add('silver');
-                else sparkle.classList.add('blue-sparkle'); 
-
-                document.body.appendChild(sparkle);
-                sparkleCount++;
-                sparkle.style.left = (e.clientX - 4 + (Math.random()*12-6)) + 'px';
-                sparkle.style.top = (e.clientY - 4 + (Math.random()*12-6)) + 'px';
-                sparkle.addEventListener('animationend', function() {
-                    if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
-                    sparkleCount--; 
-                });
-            }, 25); 
-        });
 
         const particlesContainer = document.getElementById('kitchenChaosParticlesContainer');
         const particleTypes = ['tomato', 'cheese', 'fork-icon', 'chili', 'egg', 'whisk', 'rolling-pin', 'pan', 'explosion'];
