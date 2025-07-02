@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForkFiasco ($FORK) - ULTIMATE KITCHEN CHAOS UNLEASHED!</title>
-    <!-- Favicon Added -->
+    <!-- TODO: UPDATE - Рекомендуется заменить data URI на ссылку на файл .ico для лучшей совместимости -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Cpath%20fill='%2395A5A6'%20d='M29%205V36h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203z'/%3E%3Cpath%20fill='%237F8C8D'%20d='M20%205v23h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203zm18%200v23h6V5c0-1.657-1.343-3-3-3s-3%201.343-3%203z'/%3E%3Cpath%20fill='%23BDC3C7'%20d='M12%2028v12h40V34c0-3.314-2.686-6-6-6H18c-3.314%200-6%202.686-6%206v6z'/%3E%3Ccircle%20fill='%23FFF'%20stroke='%23000'%20stroke-width='1.5'%20cx='27'%20cy='34'%20r='4'/%3E%3Ccircle%20fill='%23000'%20cx='26'%20cy='35'%20r='1.5'/%3E%3Ccircle%20fill='%23FFF'%20stroke='%23000'%20stroke-width='1.5'%20cx='37'%20cy='34'%20r='4'/%3E%3Ccircle%20fill='%23000'%20cx='38'%20cy='35'%20r='1.5'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -142,15 +142,29 @@
             cursor: pointer;
             will-change: transform;
         }
-        .interactive-button:hover {
-            filter: brightness(1.25) saturate(1.35);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.18), var(--chaos-glow-subtle);
-            transform: translateY(-5px) scale(1.08) rotate(-1.5deg) translateX(1px);
-            animation: buttonHoverWiggle 0.4s ease-in-out infinite alternate;
+
+        /* Hover effects only for devices that can hover */
+        @media (hover: hover) {
+            .interactive-button:hover {
+                filter: brightness(1.25) saturate(1.35);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.18), var(--chaos-glow-subtle);
+                transform: translateY(-5px) scale(1.08) rotate(-1.5deg) translateX(1px);
+                animation: buttonHoverWiggle 0.4s ease-in-out infinite alternate;
+            }
+            .btn-primary:hover { background-color: var(--brand-red-dark); transform: translateY(-6px) scale(1.1) rotate(-2.5deg) !important; box-shadow: 0 10px 20px rgba(220,38,38,0.6), var(--chaos-glow-strong); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
+            .btn-secondary:hover { background-color: #E2E8F0; transform: translateY(-6px) scale(1.1) rotate(2.5deg) !important; box-shadow: 0 10px 20px rgba(0,0,0,0.18), 0 0 12px rgba(200,200,200,0.6); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
+            .btn-buy:hover { background-color: var(--brand-yellow-dark); transform: translateY(-7px) scale(1.12) rotate(1.5deg) !important; box-shadow: 0 12px 24px rgba(217, 119, 6, 0.7), var(--yellow-glow); animation: buttonHoverWiggleYellow 0.35s ease-in-out infinite alternate !important; }
         }
+
         @keyframes buttonHoverWiggle {
             from { transform: translateY(-5px) scale(1.08) rotate(-1.5deg) translateX(1px); }
             to { transform: translateY(-5.5px) scale(1.085) rotate(-1deg) translateX(-1px); }
+        }
+        
+        /* Simpler active state for touch devices */
+        .interactive-button:active {
+             transform: scale(0.95) !important;
+             filter: brightness(0.9);
         }
 
         .interactive-button.button-clicked-effect {
@@ -186,11 +200,9 @@
         }
 
         .btn-primary { background-color: var(--brand-red); color: var(--text-light); box-shadow: 0 4px 8px rgba(239,68,68,0.45); }
-        .btn-primary:hover { background-color: var(--brand-red-dark); transform: translateY(-6px) scale(1.1) rotate(-2.5deg) !important; box-shadow: 0 10px 20px rgba(220,38,38,0.6), var(--chaos-glow-strong); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
         .btn-secondary { background-color: #F3F4F6; color: var(--text-dark); border: 2px solid #D1D5DB; }
-        .btn-secondary:hover { background-color: #E2E8F0; transform: translateY(-6px) scale(1.1) rotate(2.5deg) !important; box-shadow: 0 10px 20px rgba(0,0,0,0.18), 0 0 12px rgba(200,200,200,0.6); animation: buttonHoverWiggle 0.3s ease-in-out infinite alternate !important; }
         .btn-buy { background-color: var(--brand-yellow); color: var(--text-light); font-weight: 900; box-shadow: 0 5px 10px rgba(245, 158, 11, 0.55); text-transform: uppercase; }
-        .btn-buy:hover { background-color: var(--brand-yellow-dark); transform: translateY(-7px) scale(1.12) rotate(1.5deg) !important; box-shadow: 0 12px 24px rgba(217, 119, 6, 0.7), var(--yellow-glow); animation: buttonHoverWiggleYellow 0.35s ease-in-out infinite alternate !important; }
+        
         @keyframes buttonHoverWiggleYellow {
             from { transform: translateY(-7px) scale(1.12) rotate(1.5deg); }
             to { transform: translateY(-7.5px) scale(1.125) rotate(1deg); }
@@ -710,11 +722,14 @@
                 <span class="text-red-600 text-lg md:text-xl">Fork</span><span class="text-gray-700 text-lg md:text-xl">Fiasco</span>
             </a>
             <div class="hidden sm:flex space-x-1 md:space-x-3 items-center">
+                <!-- TODO: UPDATE - Замените "#" на реальные ссылки на разделы -->
                 <a href="#about" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">About</a>
                 <a href="#tokenomics" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Tokenomics</a>
                 <a href="#interactive" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Game</a>
                 <a href="#excuseGeneratorSection" class="text-gray-600 hover:text-red-600 transition-colors px-2 py-1 text-xs md:text-base rounded-md hover:bg-red-50 interactive-button">Excuse Gen</a>
+                <!-- TODO: UPDATE - Замените "#" на реальную ссылку (например, на Telegram/Discord) -->
                 <a href="#community" class="btn-primary px-2.5 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-semibold interactive-button">Join the Chaos!</a>
+                <!-- TODO: UPDATE - Замените "#" на реальную ссылку для покупки токена (например, Raydium, Jupiter) -->
                 <a href="#join" class="btn-buy px-2.5 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm interactive-button pulse-effect">BUY $FORK!</a>
             </div>
             <div class="sm:hidden">
@@ -726,11 +741,14 @@
             </div>
         </div>
         <div id="mobileMenu" class="sm:hidden hidden bg-white/95 backdrop-blur-md shadow-lg absolute w-full">
+            <!-- TODO: UPDATE - Замените "#" на реальные ссылки на разделы -->
             <a href="#about" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">About</a>
             <a href="#tokenomics" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Tokenomics</a>
             <a href="#interactive" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Game</a>
             <a href="#excuseGeneratorSection" class="block px-4 py-3 text-base text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">Excuse Gen</a>
+             <!-- TODO: UPDATE - Замените "#" на реальную ссылку (например, на Telegram/Discord) -->
             <a href="#community" class="block px-4 py-3 text-base font-semibold text-white bg-red-500 hover:bg-red-600 transition-colors">Join the Chaos!</a>
+             <!-- TODO: UPDATE - Замените "#" на реальную ссылку для покупки токена (например, Raydium, Jupiter) -->
             <a href="#join" class="block px-4 py-3 text-base font-semibold text-white bg-yellow-500 hover:bg-yellow-600 transition-colors pulse-effect">BUY $FORK!</a>
         </div>
     </nav>
@@ -798,7 +816,7 @@
                     </p>
                 </div>
                 <div class="lg:w-1/2 relative animate-on-scroll fade-in-right" style="animation-delay: 0.2s;">
-                    <!-- Image for "About" section - URL updated by user -->
+                    <!-- TODO: UPDATE - Замените URL на реальное изображение маскота -->
                     <img src="https://i.ibb.co/Kzxc3Wm4/Gemini-Generated-Image-gxvfwigxvfwigxvf.jpg" alt="Frenzy Fork - Маскот проекта ForkFiasco на кухне" class="rounded-xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-108 hover:rotate-[-3deg] hover:shadow-red-400/50">
                     <div class="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-20 h-20 md:w-28 md:h-28 bg-red-500 rounded-full opacity-15 animate-ping-slow-extra" style="animation-duration: 3.2s;"></div>
                     <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-16 h-16 md:w-24 md:h-24 bg-yellow-400 rounded-full opacity-15 animate-pulse" style="animation-duration: 2.5s; animation-timing-function: ease-in-out;"></div>
@@ -890,6 +908,7 @@
             <style> @keyframes wiggle-more { 0%, 100% { transform: rotate(-4deg) scale(1.38) translateY(-2px); } 50% { transform: rotate(4deg) scale(1.38) translateY(2px); } } .group-hover\\:animate-wiggle-more:hover > div:first-child { animation: wiggle-more 0.45s ease-in-out infinite; } </style>
              <div class="mt-12 md:mt-20 p-4 md:p-6 bg-white rounded-2xl shadow-xl text-center animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
                 <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6">Our Chaotic Crew: <strong class="text-red-500">This is US!</strong></h3>
+                <!-- TODO: UPDATE - Замените URL-адреса на реальные изображения вашего сообщества -->
                 <div id="imageCollage" class="collage-container mx-auto !rounded-xl">
                 </div>
             </div>
@@ -976,19 +995,22 @@
             </p>
             <div class="max-w-xl md:max-w-2xl mx-auto bg-gray-800 p-6 md:p-10 rounded-2xl shadow-2xl space-y-6 md:space-y-8 border-2 border-red-500/50 animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
                  <div class="text-center">
+                     <!-- TODO: UPDATE - Замените "#" на реальную ссылку для покупки токена (например, Raydium, Jupiter) -->
                      <a href="#" target="_blank" rel="noopener noreferrer" class="btn-buy px-8 py-3 md:px-12 md:py-5 rounded-xl text-lg md:text-xl lg:text-2xl font-black inline-block shadow-2xl transform hover:scale-108 transition-transform interactive-button !bg-red-600 hover:!bg-red-700 !text-white pulse-effect">
                         🚀 GET $FORK NOW! 🚀
                     </a>
                  </div>
                 <p class="text-center text-gray-400 pt-2 md:pt-4 text-md md:text-lg">
-                    Compatible with <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" class="wallet-text-link phantom">Phantom</a>,
-                    <a href="https://solflare.com/" target="_blank" rel="noopener noreferrer" class="wallet-text-link solflare">Solflare</a>,
-                    <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" class="wallet-text-link metamask">MetaMask</a>
+                    <!-- TODO: UPDATE - Замените "#" на реальные ссылки на кошельки -->
+                    Compatible with <a href="#" target="_blank" rel="noopener noreferrer" class="wallet-text-link phantom">Phantom</a>,
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="wallet-text-link solflare">Solflare</a>,
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="wallet-text-link metamask">MetaMask</a>
                     & other top wallets.
                 </p>
                 <div>
                     <h3 class="text-lg md:text-xl font-semibold text-red-400 mb-2 text-center">Official Contract Address:</h3>
                     <div class="flex flex-col sm:flex-row items-center bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 gap-2 sm:gap-0">
+                        <!-- TODO: UPDATE - Замените "value" на реальный адрес контракта токена -->
                         <input id="contractAddress" type="text" readonly value="0xFORKFIASCO...CHAOS123" class="w-full sm:flex-grow bg-transparent text-gray-300 text-xs sm:text-sm md:text-base border-none focus:ring-0 p-0 text-center sm:text-left">
                         <button id="copyContractBtn" class="w-full sm:w-auto mt-2 sm:mt-0 sm:ml-4 px-4 py-2 md:px-5 md:py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs md:text-sm font-semibold rounded-md transition-colors interactive-button">
                             Copy
@@ -1034,6 +1056,7 @@
                 Don't be a lone fork in the drawer – <strong class="text-yellow-200 text-lg md:text-xl">Join US!</strong> ForkFiasco is all about its vibrant, chaotic, and side-splittingly hilarious community! Follow our channels for the latest news, meme wars, epic contests, and to connect with fellow $FORK enthusiasts. <strong class="text-white text-lg md:text-xl">The kitchen party is ALWAYS on</strong> (and someone definitely left the blender lid off again)!
             </p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-8 mt-8 md:mt-12 animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                <!-- TODO: UPDATE - Замените "#" на реальные ссылки на ваши социальные сети -->
                 <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon-link twitter bg-white text-red-600 hover:bg-red-100 font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl flex items-center space-x-2 md:space-x-3 shadow-xl interactive-button text-md md:text-lg">
                     <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
                     <span>X (Twitter)</span>
@@ -1151,18 +1174,21 @@
 
         if (interactiveButtons.length > 0) {
             interactiveButtons.forEach(button => {
-                button.addEventListener('mousedown', (e) => {
+                const pressHandler = (e) => {
                     if (typeof Tone !== 'undefined' && Tone.context.state === 'running' && pokeSound) {
                         pokeSound.triggerAttackRelease("C3", "20n", Tone.now() + 0.005);
                     }
                     button.classList.add('button-clicked-effect');
-                });
-                button.addEventListener('mouseup', () => {
+                };
+                const releaseHandler = () => {
                     setTimeout(() => button.classList.remove('button-clicked-effect'), 120);
-                });
-                button.addEventListener('mouseleave', () => {
-                     button.classList.remove('button-clicked-effect');
-                });
+                };
+
+                button.addEventListener('mousedown', pressHandler);
+                button.addEventListener('mouseup', releaseHandler);
+                button.addEventListener('mouseleave', releaseHandler);
+                button.addEventListener('touchstart', pressHandler, { passive: true });
+                button.addEventListener('touchend', releaseHandler);
             });
         }
 
@@ -1585,7 +1611,7 @@
         const collageContainer = document.getElementById('imageCollage');
         if (collageContainer) {
             const images = [ 
-                // UPDATED URLs for collage images with 20 new links
+                // TODO: UPDATE - Замените URL-адреса на реальные изображения вашего сообщества
                 "https://i.ibb.co/yBdNvvg8/Gemini-Generated-Image-7nl7757nl7757nl7.jpg",
                 "https://i.ibb.co/pBKLygrD/Gemini-Generated-Image-lzluddlzluddlzlu.jpg",
                 "https://i.ibb.co/kVQCYf5T/Gemini-Generated-Image-ade613ade613ade6.jpg",
@@ -1870,6 +1896,8 @@
             const cursorFork = document.getElementById('hero-fork');
             
             if (cursorFork) {
+                cursorFork.classList.remove('frenzy-fork-logo'); // Remove jumping animation
+                
                 const movePupils = (fork, x, y) => {
                     const pupils = fork.querySelectorAll('.pupil');
                     pupils.forEach(pupil => {
@@ -1900,13 +1928,13 @@
                 initBlinking(cursorFork);
             }
             
-            // 2. Nav Fork (Just blinking)
+            // 2. Nav Fork (Blinking and Jumping)
             const navFork = document.getElementById('nav-fork');
             if(navFork) {
                 initBlinking(navFork);
             }
 
-            // 3. Excuse Generator Fork
+            // 3. Excuse Generator Fork (Blinking and Jumping)
             const excuseFork = document.getElementById('excuse-fork');
             const generateExcuseBtn = document.getElementById('generateExcuseBtn');
 
